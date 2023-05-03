@@ -1,0 +1,14 @@
+@import './typography.scss';
+@import './settings.scss';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $white;
+  font-family: $font-text;
+  margin: 0;
+  padding: 0;
+  cursor: default;
+}

@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchProducts } from "./redux/productsRedux";
 import Home from "./components/Home/Home";
+import { Route, Routes } from "react-router-dom";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -9,9 +10,11 @@ const App = () => {
   useEffect(() => dispatch(fetchProducts()), [dispatch]);
 
   return (
-    <div>
-      <Home />
-    </div>
+    <main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </main>
   )
 };
 

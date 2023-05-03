@@ -12,7 +12,7 @@ const Home = () => {
         <p>Loading...</p>
         ) : (
           products.map((product, i) => (
-            <p key={i}>{product.slug}</p>
+            <img key={i} src={process.env.PUBLIC_URL + product.image.mobile} alt=""/>
           ))
         )}
     </div>
