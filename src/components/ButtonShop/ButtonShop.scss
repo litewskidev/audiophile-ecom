@@ -1,0 +1,29 @@
+@import '../../styles/settings.scss';
+
+.btnWrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.833rem;
+  cursor: pointer;
+}
+
+.btnShop {
+  padding: 0;
+  background: none;
+  border: none;
+  color: $black;
+  opacity: 0.5;
+  display: inline;
+  text-transform: uppercase;
+  font-family: $font-text;
+  font-weight: 700;
+  font-size: 0.813rem;
+  letter-spacing: 0.063rem;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: $orange-dark;
+    opacity: 1;
+  }
+}

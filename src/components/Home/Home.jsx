@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { getAllProducts } from "../../redux/productsRedux";
 import './Home.scss';
+import Navbar from "../Navbar/Navbar";
 
 const Home = () => {
   const products = useSelector(getAllProducts);
@@ -8,14 +9,7 @@ const Home = () => {
 
   return (
     <div>
-      <h1 className="heading__h1">audiophile</h1>
-      {( typeof products === 'undefined' ) ? (
-        <p>Loading...</p>
-        ) : (
-          products.map((product, i) => (
-            <img key={i} src={process.env.PUBLIC_URL + product.image.mobile} alt=""/>
-          ))
-        )}
+      <Navbar />
     </div>
   )
 };

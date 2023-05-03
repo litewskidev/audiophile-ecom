@@ -12,3 +12,11 @@ body {
   padding: 0;
   cursor: default;
 }
+
+a {
+  text-decoration: none !important;
+
+  &:link {
+    text-decoration: none !important;
+  }
+}

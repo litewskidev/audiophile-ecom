@@ -1,8 +1,8 @@
+import { Route, Routes } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchProducts } from "./redux/productsRedux";
 import Home from "./components/Home/Home.jsx";
-import { Route, Routes } from "react-router-dom";
 import HeadphonesList from "./components/HeadphonesList/HeadphonesList.jsx";
 import SpeakersList from "./components/SpeakersList/SpeakerList.jsx";
 import EarphonesList from "./components/EarphonesList/EarphonesList.jsx";
