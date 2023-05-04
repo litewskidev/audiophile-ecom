@@ -1,0 +1,22 @@
+@import '../../styles/settings.scss';
+
+.list__wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.list__header {
+  background-color: $black-light;
+  color: $white;
+  margin-bottom: 4rem;
+  h1 {
+    padding: 2rem 0;
+  }
+}
+
+.list__products__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 7.5rem;
+}

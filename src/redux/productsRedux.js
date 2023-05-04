@@ -1,5 +1,8 @@
 // SELECTORS
 export const getAllProducts = state => state.products;
+export const getHeadphones = ({ products }) => products.filter(product => product.category === "headphones");
+export const getSpeakers = ({ products }) => products.filter(product => product.category === "speakers");
+export const getEarphones = ({ products }) => products.filter(product => product.category === "earphones");
 
 //  ACTIONS
 const createActionName = actionName => `app/products/${actionName}`;

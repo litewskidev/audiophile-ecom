@@ -1,0 +1,21 @@
+@import '../../styles/settings.scss';
+
+.about__wrapper {
+  margin-top: 7.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  span {
+    color: $orange-dark;
+  }
+
+  h1 {
+    letter-spacing: 1px !important;
+    font-weight: 900 !important;
+  }
+
+  p {
+    opacity: 0.5;
+  }
+}

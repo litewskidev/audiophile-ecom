@@ -6,7 +6,7 @@ import Home from "./components/Home/Home.jsx";
 import HeadphonesList from "./components/HeadphonesList/HeadphonesList.jsx";
 import SpeakersList from "./components/SpeakersList/SpeakerList.jsx";
 import EarphonesList from "./components/EarphonesList/EarphonesList.jsx";
-import Card from "./components/Card/Card.jsx";
+import Card from "./components/CardProduct/CardProduct.jsx";
 import E404 from "./components/E404/E404.jsx";
 
 const App = () => {

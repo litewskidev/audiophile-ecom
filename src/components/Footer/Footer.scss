@@ -1,0 +1,53 @@
+@import '../../styles/settings.scss';
+
+.footer__wrapper {
+  background-color: $black-light;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 7.5rem;
+  padding: 0 1.5rem;
+  padding-bottom: 2.375rem;
+
+  h1 {
+    color: $white;
+  }
+
+  p {
+    color: $white;
+    opacity: 0.6;
+    font-weight: 300 !important;
+  }
+
+  li {
+    list-style: none;
+  }
+}
+
+.footer__pattern {
+  height: 0.25rem;
+  border-radius: 0.05rem;
+  width: 30%;
+  background-color: $orange-dark;
+}
+
+.footer__logo {
+  width: 50%;
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0;
+}
+
+.footer__icons {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
