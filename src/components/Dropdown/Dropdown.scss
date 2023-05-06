@@ -1,0 +1,39 @@
+@import '../../styles/settings.scss';
+
+.dropdown {
+    margin-top: 10.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+
+  li {
+    background-color: $gray;
+    border-radius: 0.5rem;
+    list-style: none;
+  }
+}
+
+.dropdown__box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dropdown__img {
+  width: 50%;
+  margin-top: -3rem;
+}
+
+.dropdown__text {
+  color: $black;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.938rem;
+  line-height: 1.25rem;
+  letter-spacing: 0.067rem;
+}
+
+.dropdown__link {
+  margin-top: 1.063rem;
+  margin-bottom: 1.375rem;
+}

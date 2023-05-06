@@ -15,9 +15,11 @@ const Navbar = () => {
         <div className='dropdown__toggle__btn' onClick={toggleMenu}>
           <img src={`${process.env.PUBLIC_URL}/assets/shared/tablet/icon-hamburger.svg`} alt='icon' />
         </div>
+        <Link to='/'>
         <div className='navbar__logo'>
           <img src={`${process.env.PUBLIC_URL}/assets/shared/desktop/logo.svg`} alt='logo' />
         </div>
+        </Link>
         <ul className='navbar__links'>
           <li>
             <Link to='/'>

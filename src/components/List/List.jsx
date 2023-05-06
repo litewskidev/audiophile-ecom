@@ -1,6 +1,7 @@
 import About from '../About/About.jsx';
 import CardList from '../CardList/CardList.jsx';
 import Container from '../Container/Container.jsx';
+import Dropdown from '../Dropdown/Dropdown.jsx';
 import Footer from '../Footer/Footer.jsx';
 import './List.scss';
 
@@ -16,6 +17,7 @@ const List = ({ list, title }) => {
               {list.map(product => <CardList key={product.id} {...product} />)}
             </div>
           </div>
+          <Dropdown />
           <About />
         </Container>
         <Footer />
