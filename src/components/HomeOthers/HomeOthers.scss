@@ -1,0 +1,66 @@
+@import '../../styles/settings.scss';
+
+.homeothers__wrapper {
+  margin-top: 7.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.box__one {
+  border-radius: 0.5rem;
+  background-color: $orange-dark;
+  text-align: center;
+  color: $white;
+  padding: 3.438rem 1.5rem;
+}
+
+.box__one__inner {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+
+  img {
+    width: 50%;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.box__two {
+  position: relative;
+
+  img {
+    border-radius: 0.5rem;
+    width: 100%;
+  }
+}
+.box__two__inner {
+  position: absolute;
+  top: 30%;
+  padding: 0 1.5rem;
+
+  p {
+    margin-bottom: 2rem;
+  }
+}
+
+.box__three {
+  img {
+    border-radius: 0.5rem;
+    width: 100%;
+  }
+}
+
+.box__four {
+  border-radius: 0.5rem;
+  background: $gray;
+}
+
+.box__four__inner {
+  padding: 2.563rem 1.5rem;
+  p {
+    margin-bottom: 2rem;
+  }
+}

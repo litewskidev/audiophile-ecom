@@ -18,7 +18,7 @@ const Card = ({ image, newp, name, description, price, features, includes, galle
         <p className='card__goback'>Go Back</p>
         </Link>
         <div className='card__image'>
-          <img src={process.env.PUBLIC_URL + image.mobile} alt='' />
+          <img src={process.env.PUBLIC_URL + image.desktop} alt='' />
         </div>
         <div className='card__info'>
           <div>
@@ -46,21 +46,21 @@ const Card = ({ image, newp, name, description, price, features, includes, galle
           </div>
         </div>
         <div className='card__gallery'>
-          <img src={process.env.PUBLIC_URL + gallery.first.mobile} alt='' />
-          <img src={process.env.PUBLIC_URL + gallery.second.mobile} alt='' />
-          <img src={process.env.PUBLIC_URL + gallery.third.mobile} alt='' />
+          <img src={process.env.PUBLIC_URL + gallery.first.desktop} alt='' />
+          <img src={process.env.PUBLIC_URL + gallery.second.desktop} alt='' />
+          <img src={process.env.PUBLIC_URL + gallery.third.desktop} alt='' />
         </div>
         <div className='card__others'>
-        <h2 className='heading__h5'>you may also like</h2>
-          {others.map(other =>
-            <div key={other.name} className='card__others__items'>
-              <img src={process.env.PUBLIC_URL + other.image.mobile} alt='' />
-              <h2 className='heading__h5'>{other.name}</h2>
-              <Link to={'/' + category + '/' + other.slug}>
-                <ButtonSee className='orange'>see product</ButtonSee>
-              </Link>
-            </div>
-          )}
+          <h2 className='heading__h5'>you may also like</h2>
+            {others.map(other =>
+              <div key={other.name} className='card__others__items'>
+                <img className='others__img' src={process.env.PUBLIC_URL + other.image.mobile} alt='' />
+                <h2 className='heading__h5'>{other.name}</h2>
+                <Link to={'/' + category + '/' + other.slug}>
+                  <ButtonSee className='orange'>see product</ButtonSee>
+                </Link>
+              </div>
+            )}
         </div>
         <Dropdown />
         <About />

@@ -8,7 +8,7 @@ const CardList = ({ categoryImage, name, description, newp, category, slug }) =>
   return (
     <div className='cardlist'>
       <div className='cardlist__wrapper'>
-        <img src={process.env.PUBLIC_URL + categoryImage.mobile} alt='' />
+        <img src={process.env.PUBLIC_URL + categoryImage.desktop} alt='' />
         <div>
           {(toggleNew(newp) === true) ? (
             <p className='text__overline'>NEW PRODUCT</p>
