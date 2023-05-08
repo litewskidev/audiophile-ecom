@@ -1,7 +1,7 @@
 @import '../../styles/settings.scss';
 
 .btn {
-  display: inline;
+  display: inline !important;
   margin: 0;
   padding: 0.938rem 1.844rem 0.938rem 1.969rem;
   text-transform: uppercase;

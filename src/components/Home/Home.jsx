@@ -11,7 +11,7 @@ import HomeOthers from "../HomeOthers/HomeOthers";
 
 const Home = () => {
   const products = useSelector(getAllProducts);
-  console.log(products[0]);
+  console.log(products);
 
   return (
     <div className="home__wrapper">
@@ -19,7 +19,7 @@ const Home = () => {
       <HomeHero {...products[3]} />
       <Container>
         <Dropdown />
-        <HomeOthers />
+        <HomeOthers {...products}/>
         <About />
       </Container>
       <Footer />
