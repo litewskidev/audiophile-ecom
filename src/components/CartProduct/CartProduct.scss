@@ -1,0 +1,15 @@
+.cartproduct__wrapper {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  img {
+    width: 4rem;
+  }
+}
+
+.cartproduct__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

@@ -7,10 +7,47 @@ import Footer from '../Footer/Footer';
 import Container from '../Container/Container';
 import Navbar from '../Navbar/Navbar';
 import { toggleNew } from '../../utils/toggleNew';
+import InputNum from '../InputNum/InputNum';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/CartRedux';
+import shortid from 'shortid';
 
-const Card = ({ image, newp, name, description, price, features, includes, gallery, others, category}) => {
+const Card = ({ image, newp, name, description, price, features, includes, gallery, others, category, thumbnail }) => {
+  const dispatch = useDispatch();
+
+  const [count, setCount] = useState(1);
+  const sumPrice = (price * count);
+
+  const increment = (e) => {
+    e.preventDefault();
+    setCount(count + 1);
+  };
+
+  const decrement = (e) => {
+    e.preventDefault();
+    if(count >= 2) {
+      setCount(count - 1);
+    }
+  };
+
+  const addProduct = e => {
+    e.preventDefault();
+    const data = {
+      id: shortid(),
+      name: name,
+      quantity: count,
+      price: sumPrice,
+      thumbnail
+    };
+    dispatch(addToCart(data));
+    //dispatch(fetchAddToCart(data));  API
+    //dispatch(fetchCart());  API
+    console.log(data);
+    setCount(1);
+  };
+
   return (
-
     <div className='card__wrapper'>
       <Navbar />
       <Container>
@@ -30,7 +67,13 @@ const Card = ({ image, newp, name, description, price, features, includes, galle
           </div>
           <h1 className='heading__h4'>{name}</h1>
           <p className='text__body'>{description}</p>
-          <h2 className='heading__h6'>$ {price}</h2>
+          <h2 className='heading__h5'>$ {price}</h2>
+          <div className='card__orderbox'>
+            <InputNum count={count} increment={increment} decrement={decrement}/>
+            <div onClick={addProduct}>
+              <ButtonSee className='orange'>add to cart</ButtonSee>
+            </div>
+          </div>
           <h2 className='heading__h5'>features</h2>
           <p className='text__body'>{features}</p>
         </div>

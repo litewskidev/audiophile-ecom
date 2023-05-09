@@ -1,0 +1,25 @@
+.cart__wrapper {
+  width: 100%;
+  background: white;
+  opacity: 1 !important;
+  min-height: 30.5rem;
+  border-radius: 0.5rem;
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart__header {
+  display: flex;
+  justify-content: space-between;
+
+  p:last-of-type {
+    text-decoration: underline;
+    opacity: 0.55;
+  }
+}
+
+.cart__summary {
+  display: flex;
+  justify-content: space-between;
+}

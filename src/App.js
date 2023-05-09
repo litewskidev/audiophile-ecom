@@ -14,6 +14,10 @@ const App = () => {
 
   useEffect(() => dispatch(fetchProducts()), [dispatch]);
 
+  /*  API
+  useEffect(() => dispatch(fetchCart()), [dispatch]);
+  */
+
   return (
     <main>
       <Routes>

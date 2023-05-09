@@ -1,0 +1,35 @@
+@import '../../styles/settings.scss';
+
+.inputNum__wrapper {
+  background: $gray;
+  max-width: 7.5rem;
+  min-height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: contrast(0.9);
+  padding: 0 1rem;
+}
+
+.inputNum__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    font-size: 0.813rem;
+  }
+}
+
+.inputNum__count {
+  margin: 0 1.8rem;
+}
+
+.inputNum__symbols {
+  opacity: 0.25;
+
+  &:hover,
+  &:focus {
+    color: $orange-dark;
+  }
+}
