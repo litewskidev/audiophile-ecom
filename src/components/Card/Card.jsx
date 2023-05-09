@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { toggleNew } from '../../utils/toggleNew';
-import { addToCart } from '../../redux/CartRedux';
+import { addToCart } from '../../redux/cartRedux';
 
 const Card = ({ image, newp, name, description, price, features, includes, gallery, others, category, thumbnail, symbol }) => {
   const dispatch = useDispatch();

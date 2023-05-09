@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import ButtonSee from '../ButtonSee/ButtonSee';
 import './Cart.scss';
-import { getAllCart, removeAll } from '../../redux/CartRedux.js';
+import { getAllCart, removeAll } from '../../redux/cartRedux.js';
 import CartProduct from '../CartProduct/CartProduct.jsx';
 
 const Cart = () => {
