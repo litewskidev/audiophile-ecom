@@ -2,14 +2,36 @@
   display: flex;
   gap: 1rem;
   align-items: center;
+  justify-content: space-between;
 
   img {
     width: 4rem;
+    border-radius: 0.5rem;
   }
+}
+
+.cart__product__data {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.cartproduct__symbol {
+  font-weight: 900;
+  font-size: 0.938rem;
+  //line-height: 0.563rem;
+}
+
+.cartproduct__price {
+  font-weight: 900;
+  font-size: 0.875rem;
+  opacity: 0.5;
+}
+
+.cart__product__input {
 }
 
 .cartproduct__info {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
 }

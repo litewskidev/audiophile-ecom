@@ -6,6 +6,7 @@ import CartProduct from '../CartProduct/CartProduct.jsx';
 
 const Cart = () => {
   const dispatch = useDispatch();
+
   let cart = useSelector(getAllCart);
 
   const totalPrice = () => {
@@ -18,8 +19,6 @@ const Cart = () => {
     dispatch(removeAll(cart));
   };
 
-
-
   return (
     <div className='cart__wrapper'>
       <div className='cart__header'>
@@ -29,11 +28,13 @@ const Cart = () => {
       <div className='cart__products'>
         {cart.map(item => <CartProduct key={item.id} {...item} />)}
       </div>
-      <div className='cart__summary'>
-        <p>TOTAL</p>
-        <p>$ {totalPrice()}</p>
+      <div className='cart__bottom'>
+        <div className='cart__summary'>
+          <p className='cart__total'>TOTAL</p>
+          <p className='cart__price'>$ {totalPrice()}</p>
+        </div>
+        <ButtonSee className='orange'>checkout</ButtonSee>
       </div>
-      <ButtonSee className='orange'>checkout</ButtonSee>
     </div>
   )
 };

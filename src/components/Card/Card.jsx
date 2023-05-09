@@ -1,19 +1,19 @@
-import { Link } from 'react-router-dom';
-import ButtonSee from '../ButtonSee/ButtonSee';
 import './Card.scss';
+import ButtonSee from '../ButtonSee/ButtonSee';
 import Dropdown from '../Dropdown/Dropdown';
 import About from '../About/About';
 import Footer from '../Footer/Footer';
 import Container from '../Container/Container';
 import Navbar from '../Navbar/Navbar';
-import { toggleNew } from '../../utils/toggleNew';
 import InputNum from '../InputNum/InputNum';
+import shortid from 'shortid';
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { toggleNew } from '../../utils/toggleNew';
 import { addToCart } from '../../redux/CartRedux';
-import shortid from 'shortid';
 
-const Card = ({ image, newp, name, description, price, features, includes, gallery, others, category, thumbnail }) => {
+const Card = ({ image, newp, name, description, price, features, includes, gallery, others, category, thumbnail, symbol }) => {
   const dispatch = useDispatch();
 
   const [count, setCount] = useState(1);
@@ -38,7 +38,8 @@ const Card = ({ image, newp, name, description, price, features, includes, galle
       name: name,
       quantity: count,
       price: sumPrice,
-      thumbnail
+      thumbnail,
+      symbol
     };
     dispatch(addToCart(data));
     //dispatch(fetchAddToCart(data));  API
@@ -69,7 +70,7 @@ const Card = ({ image, newp, name, description, price, features, includes, galle
           <p className='text__body'>{description}</p>
           <h2 className='heading__h5'>$ {price}</h2>
           <div className='card__orderbox'>
-            <InputNum count={count} increment={increment} decrement={decrement}/>
+            <InputNum className='inputNum__card' count={count} increment={increment} decrement={decrement}/>
             <div onClick={addProduct}>
               <ButtonSee className='orange'>add to cart</ButtonSee>
             </div>

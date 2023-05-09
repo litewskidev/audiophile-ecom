@@ -1,6 +1,6 @@
 @import '../../styles/settings.scss';
 
-.inputNum__wrapper {
+.inputNum__card {
   background: $gray;
   max-width: 7.5rem;
   min-height: 2rem;
@@ -9,6 +9,25 @@
   justify-content: center;
   filter: contrast(0.9);
   padding: 0 1rem;
+
+  .inputNum__count {
+    margin: 0 1.8rem;
+  }
+}
+
+.inputNum__cart {
+  background: $gray;
+  max-width: 7rem;
+  min-height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: contrast(0.9);
+  padding: 0 1rem;
+
+  .inputNum__count {
+    margin: 0 1.2rem;
+  }
 }
 
 .inputNum__inner {
@@ -21,9 +40,7 @@
   }
 }
 
-.inputNum__count {
-  margin: 0 1.8rem;
-}
+
 
 .inputNum__symbols {
   opacity: 0.25;

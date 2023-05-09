@@ -7,6 +7,7 @@
   padding: 2rem 1.75rem;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .cart__header {
@@ -19,7 +20,30 @@
   }
 }
 
+.cart__products {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 .cart__summary {
   display: flex;
   justify-content: space-between;
+}
+
+.cart__total {
+  font-weight: 600;
+  font-size: 0.938rem;
+  opacity: 0.5;
+}
+
+.cart__price {
+  font-weight: 900;
+  font-size: 1.125rem;
+}
+
+.cart__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }

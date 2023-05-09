@@ -14,6 +14,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 2rem 1.5rem;
+  position: relative;
+  z-index: 999;
 }
 
 .dropdown__toggle__btn {
@@ -43,10 +45,11 @@
 
 //  CART
 .navbar__cart {
-  opacity: 0;
-  height: 0;
-  overflow: hidden;
-  transition: opacity 0.2s ease-in-out;
+  position: absolute;
+  transition: top 0.2s ease-out;
+  top: -30rem;
+  width: 100%;
+  z-index: 10;
 }
 
 .cart__container {
@@ -56,10 +59,11 @@
 
 //  DROPDOWN
 .navbar__dropdown {
-  opacity: 0;
-  height: 0;
-  overflow: hidden;
-  transition: opacity 0.2s ease-in-out;
+  position: absolute;
+  transition: top 0.3s ease-out;
+  top: -35rem;
+  width: 100%;
+  z-index: 10;
 
   li {
     background-color: $gray;
@@ -107,14 +111,12 @@
 
 //  CART
   .navbar__cart.open {
-    opacity: 1;
-    height: auto;
-    overflow: visible;
     position: absolute;
+    top: 6rem;
     z-index: 10;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.3);
     width: 100%;
-    height: 100vh;
+    height: 100%;
   }
 
 
@@ -122,9 +124,6 @@
   .navbar__dropdown.open {
     border-radius: 0.5rem;
     background-color: $white;
-    opacity: 1;
-    height: auto;
-    overflow: visible;
     margin-top: 2.2rem;
     padding: 1.5rem;
     padding-bottom: 0;
@@ -132,8 +131,9 @@
     flex-direction: column;
     gap: 4rem;
     position: absolute;
+    top: 6rem;
     z-index: 10;
-    box-shadow: 0 150px 300px $black;
+    box-shadow: 0 0 20rem $black;
   }
 
   .dropdown__pattern {

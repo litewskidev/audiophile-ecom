@@ -1,7 +1,7 @@
 import './CartProduct.scss';
 import InputNum from '../InputNum/InputNum';
 
-const CartProduct = ({ id, name, price, quantity, thumbnail }) => {
+const CartProduct = ({ price, quantity, thumbnail, symbol }) => {
 
   /*  REMOVE ITEM
   const removeBtn = () => {
@@ -11,13 +11,16 @@ const CartProduct = ({ id, name, price, quantity, thumbnail }) => {
 
   return (
     <div className='cartproduct__wrapper'>
-      <img src={process.env.PUBLIC_URL + thumbnail} alt=''/>
-      <div className='cartproduct__info'>
-        <div>{name}</div>
-        <div>$ {price}</div>
+      <div className='cart__product__data'>
+        <img src={process.env.PUBLIC_URL + thumbnail} alt=''/>
+        <div className='cartproduct__info'>
+          <p className='cartproduct__symbol'>{symbol}</p>
+          <p className='cartproduct__price'>$ {price}</p>
+        </div>
       </div>
-      <InputNum count={quantity} />
-
+      <div className='cart__product__input'>
+        <InputNum className='inputNum__cart' count={quantity} />
+      </div>
     </div>
   )
 };
