@@ -1,8 +1,9 @@
-import { useDispatch, useSelector } from 'react-redux';
-import ButtonSee from '../ButtonSee/ButtonSee';
 import './Cart.scss';
-import { getAllCart, removeAll } from '../../redux/cartRedux.js';
+import ButtonSee from '../ButtonSee/ButtonSee';
 import CartProduct from '../CartProduct/CartProduct.jsx';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllCart, removeAll } from '../../redux/cartRedux.js';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -11,7 +12,7 @@ const Cart = () => {
 
   const totalPrice = () => {
     let total = 0;
-    cart.map(product => total += product.price);
+    cart.map(product => total += (product.price * product.quantity));
     return total;
   };
 
@@ -26,14 +27,23 @@ const Cart = () => {
         <p className='text__body' onClick={clearCart}>Remove all</p>
       </div>
       <div className='cart__products'>
-        {cart.map(item => <CartProduct key={item.id} {...item} />)}
+        {(cart.length === 0) ? (
+          <div className='text__body cart__empty'>
+            <img src={process.env.PUBLIC_URL + 'assets/cart/HighGradeHeadset.svg'} alt=''/>
+            <p>Your cart is empty</p>
+          </div>
+        ) : (
+        cart.map(item => <CartProduct key={item.cartId} {...item} />)
+        )}
       </div>
       <div className='cart__bottom'>
         <div className='cart__summary'>
           <p className='cart__total'>TOTAL</p>
           <p className='cart__price'>$ {totalPrice()}</p>
         </div>
-        <ButtonSee className='orange'>checkout</ButtonSee>
+        <Link to='/checkout'>
+          <ButtonSee className='cart__btn orange'>checkout</ButtonSee>
+        </Link>
       </div>
     </div>
   )

@@ -1,7 +1,24 @@
 import './CartProduct.scss';
 import InputNum from '../InputNum/InputNum';
+import { useDispatch } from 'react-redux';
+import { decrementQty, incrementQty } from '../../redux/cartRedux';
 
-const CartProduct = ({ price, quantity, thumbnail, symbol }) => {
+const CartProduct = ({ price, quantity, thumbnail, symbol, id, cartId }) => {
+  const dispatch = useDispatch();
+
+  const data = {cartId};
+
+  const increment = (e) => {
+    e.preventDefault();
+    dispatch(incrementQty(data));
+  };
+
+  const decrement = (e) => {
+    e.preventDefault();
+    if (quantity >= 2) {
+    dispatch(decrementQty(data));
+    }
+  };
 
   /*  REMOVE ITEM
   const removeBtn = () => {
@@ -19,7 +36,7 @@ const CartProduct = ({ price, quantity, thumbnail, symbol }) => {
         </div>
       </div>
       <div className='cart__product__input'>
-        <InputNum className='inputNum__cart' count={quantity} />
+        <InputNum className='inputNum__cart' count={quantity} increment={increment} decrement={decrement} />
       </div>
     </div>
   )

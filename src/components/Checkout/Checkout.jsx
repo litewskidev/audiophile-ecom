@@ -1,8 +1,15 @@
+import Navbar from '../Navbar/Navbar';
 import './Checkout.scss';
 
 const Checkout = () => {
   return (
-    <div>Checkout</div>
+    <div>
+      <Navbar />
+      <div className='checkout'>
+        <p className='heading__h2'>checkout</p>
+        <p className='text__overline'>under construction</p>
+      </div>
+    </div>
   )
 };
 

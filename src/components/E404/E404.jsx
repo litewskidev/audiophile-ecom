@@ -2,7 +2,7 @@ import './E404.scss';
 
 const E404 = () => {
   return (
-    <div>E;404</div>
+    <div>E404</div>
   )
 };
 

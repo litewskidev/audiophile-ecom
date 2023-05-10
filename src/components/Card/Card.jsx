@@ -13,11 +13,10 @@ import { useDispatch } from 'react-redux';
 import { toggleNew } from '../../utils/toggleNew';
 import { addToCart } from '../../redux/cartRedux';
 
-const Card = ({ image, newp, name, description, price, features, includes, gallery, others, category, thumbnail, symbol }) => {
+const Card = ({ image, newp, name, description, price, features, includes, gallery, others, category, thumbnail, symbol, quantity, id }) => {
   const dispatch = useDispatch();
 
   const [count, setCount] = useState(1);
-  const sumPrice = (price * count);
 
   const increment = (e) => {
     e.preventDefault();
@@ -26,25 +25,27 @@ const Card = ({ image, newp, name, description, price, features, includes, galle
 
   const decrement = (e) => {
     e.preventDefault();
-    if(count >= 2) {
-      setCount(count - 1);
+    if (count >= 2) {
+    setCount(count - 1);
     }
   };
+
+  const sumPrice = (price * quantity);
 
   const addProduct = e => {
     e.preventDefault();
     const data = {
-      id: shortid(),
+      cartId: shortid(),
+      id: id,
       name: name,
       quantity: count,
       price: sumPrice,
-      thumbnail,
-      symbol
+      symbol,
+      thumbnail
     };
     dispatch(addToCart(data));
     //dispatch(fetchAddToCart(data));  API
     //dispatch(fetchCart());  API
-    console.log(data);
     setCount(1);
   };
 
@@ -70,7 +71,7 @@ const Card = ({ image, newp, name, description, price, features, includes, galle
           <p className='text__body'>{description}</p>
           <h2 className='heading__h5'>$ {price}</h2>
           <div className='card__orderbox'>
-            <InputNum className='inputNum__card' count={count} increment={increment} decrement={decrement}/>
+            <InputNum className='inputNum__card' count={count} increment={increment} decrement={decrement} />
             <div onClick={addProduct}>
               <ButtonSee className='orange'>add to cart</ButtonSee>
             </div>
