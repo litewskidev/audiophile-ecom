@@ -9,7 +9,6 @@ import './styles/global.scss';
 import './styles/settings.scss';
 import './styles/typography.scss';
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   //<React.StrictMode>

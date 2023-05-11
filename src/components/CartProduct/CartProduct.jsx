@@ -3,7 +3,7 @@ import InputNum from '../InputNum/InputNum';
 import { useDispatch } from 'react-redux';
 import { decrementQty, incrementQty } from '../../redux/cartRedux';
 
-const CartProduct = ({ price, quantity, thumbnail, symbol, id, cartId }) => {
+const CartProduct = ({ price, quantity, thumbnail, symbol, cartId }) => {
   const dispatch = useDispatch();
 
   const data = {cartId};

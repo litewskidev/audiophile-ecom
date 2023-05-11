@@ -7,7 +7,7 @@ import Container from '../Container/Container';
 import Navbar from '../Navbar/Navbar';
 import InputNum from '../InputNum/InputNum';
 import shortid from 'shortid';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { toggleNew } from '../../utils/toggleNew';
@@ -15,6 +15,7 @@ import { addToCart } from '../../redux/cartRedux';
 
 const Card = ({ image, newp, name, description, price, features, includes, gallery, others, category, thumbnail, symbol, quantity, id }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [count, setCount] = useState(1);
 
@@ -53,9 +54,9 @@ const Card = ({ image, newp, name, description, price, features, includes, galle
     <div className='card__wrapper'>
       <Navbar />
       <Container>
-        <Link to={'/' + category}>
-        <p className='card__goback'>Go Back</p>
-        </Link>
+        <div onClick={() => navigate(-1)}>
+          <p className='card__goback'>Go Back</p>
+        </div>
         <div className='card__image'>
           <img src={process.env.PUBLIC_URL + image.desktop} alt='' />
         </div>
