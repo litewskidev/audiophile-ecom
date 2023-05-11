@@ -3,12 +3,13 @@ import ButtonSee from '../ButtonSee/ButtonSee';
 import CartProduct from '../CartProduct/CartProduct.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCart, removeAll } from '../../redux/cartRedux.js';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const Cart = () => {
   const dispatch = useDispatch();
-
-  let cart = useSelector(getAllCart);
+  const navigate = useNavigate();
+  const cart = useSelector(getAllCart);
 
   const totalPrice = () => {
     let total = 0;
@@ -18,6 +19,12 @@ const Cart = () => {
 
   const clearCart = () => {
     dispatch(removeAll(cart));
+  };
+
+  const checkout = () => {
+    if (cart.length > 0) {
+      navigate('/checkout');
+    }
   };
 
   return (
@@ -41,9 +48,10 @@ const Cart = () => {
           <p className='cart__total'>TOTAL</p>
           <p className='cart__price'>$ {totalPrice()}</p>
         </div>
-        <Link to='/checkout'>
+
+        <div onClick={checkout}>
           <ButtonSee className='cart__btn orange'>checkout</ButtonSee>
-        </Link>
+        </div>
       </div>
     </div>
   )

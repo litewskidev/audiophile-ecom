@@ -59,7 +59,7 @@ const cartReducer = (statePart = [], action) => {
     case REMOVE_FROM_CART:
       return statePart.filter(product => product.id !== action.payload);
     case REMOVE_ALL:
-      return statePart = []
+      return []
     case INCREMENT_QTY:
       return statePart.map(product => {
         if(product.cartId === action.payload.cartId) {
