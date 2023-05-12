@@ -4,6 +4,7 @@
   background: $gray;
   padding-bottom: 6.063rem;
   margin-bottom: -7.5rem;
+  position: relative;
 }
 
 .check__goback {
@@ -27,6 +28,12 @@
   gap: 2rem;
 }
 
+.checkout__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 .checkout__box {
   display: flex;
   flex-direction: column;
@@ -39,6 +46,70 @@
   color: $orange-dark;
 }
 
+
+.checkoutform__billing, .checkoutform__shipping, .checkoutform__payment {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.checkoutform__input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  label {
+    font-size: 0.75rem;
+    font-weight: 900;
+    margin-bottom: 0.563rem;
+  }
+
+  input {
+    font-size: 0.875rem;
+    font-weight: 700;
+    font-family: $font-text;
+    border: 1px solid $gray-dark;
+    border-radius: 0.5rem;
+    padding: 1.125rem 1.5rem;
+    outline: none;
+
+    &::placeholder {
+      color: $black;
+      opacity: 0.4;
+    }
+
+    &:focus {
+      border: 1px solid $orange-dark;
+    }
+
+    &:focus:invalid {
+      border: 2px solid $red;
+
+      label {
+        color: $red;
+      }
+    }
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 62.5rem $white inset;
+    }
+  }
+}
+
+.checkoutform__radio {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.125rem 1rem;
+  border: 1px solid $gray-dark;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 900;
+  font-family: $font-text;
+}
+
+
+//  SUMMARY
 .check__summary {
   padding: 1.5rem;
   background: $white;
@@ -116,4 +187,106 @@
   font-size: 1.125rem;
   font-weight: 700;
   color: $orange-dark;
+}
+
+
+//  CHECKOUT MODAL
+
+.checkout__modal {
+  display: none;
+}
+
+.checkout__modal.on {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+  height: 100vh;
+}
+.checkout__modal__wrapper {
+  margin-top: 8.438rem;
+  background: $white;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 2rem;
+
+  img {
+    width: 4rem;
+  }
+}
+
+.checkout__modal__text {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  p:first-of-type {
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 28px;
+    text-transform: uppercase;
+  }
+
+  p:last-of-type {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 25px;
+    opacity: 0.5;
+  }
+}
+
+.checkout__modal__products{
+  background: $gray;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.summary__others {
+  margin-top: 0.75rem;
+  text-align: center;
+  border-top: 1px solid rgb(0, 0, 0, 0.2);
+  opacity: 0.6;
+  padding-top: 0.75rem;
+
+  p {
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 16px;
+  }
+}
+
+.checkout__modal__grand {
+  background: $black;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+
+  p:first-of-type {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 25px;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+
+  p:last-of-type {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+  }
+}
+
+.checkout__modalBtn {
+  width: 100%;
 }

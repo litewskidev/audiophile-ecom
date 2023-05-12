@@ -1,8 +1,11 @@
 import './InputText.scss';
 
-const InputText = () => {
+const InputText = props => {
   return (
-    <div>InputText</div>
+    <form>
+      <label form={props.id}>{props.label}</label><br />
+      <input type={props.type} id={props.id} placeholder={props.placeholder} />
+    </form>
   )
 };
 
