@@ -1,8 +1,7 @@
 import { useSelector } from 'react-redux';
+import { getEarphones } from '../../redux/productsRedux.js';
+import List from '../List/List.jsx';
 import './EarphonesList.scss';
-import { getEarphones } from '../../redux/productsRedux';
-import Navbar from '../Navbar/Navbar';
-import List from '../List/List';
 
 const EarphonesList = () => {
   const title = 'earphones';
@@ -10,7 +9,6 @@ const EarphonesList = () => {
 
   return (
     <div>
-      <Navbar />
       <List list={earphonesList} title={title}/>
     </div>
   )

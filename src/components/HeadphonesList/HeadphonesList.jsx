@@ -1,17 +1,14 @@
 import { useSelector } from 'react-redux';
-import List from '../List/List';
+import { getHeadphones } from '../../redux/productsRedux.js';
+import List from '../List/List.jsx';
 import './HeadphonesList.scss';
-import { getHeadphones } from '../../redux/productsRedux';
-import Navbar from '../Navbar/Navbar';
 
 const HeadphonesList = () => {
-
   const title = 'headphones';
   const headphonesList = useSelector(getHeadphones);
 
   return (
     <div>
-      <Navbar />
       <List list={headphonesList} title={title}/>
     </div>
   )

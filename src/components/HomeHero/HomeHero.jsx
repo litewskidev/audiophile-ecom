@@ -20,7 +20,7 @@ const HomeHero = ({ newp, name, category, slug }) => {
           <h1 className='heading__h2'>{name}</h1>
           <p className='text__body'>Experience natural, lifelike audio and<br />exceptional build quality made for the<br />passionate music enthusiast.</p>
         </div>
-        <Link className='btn__home' to={'/' + category + '/' + slug}>
+        <Link className='btn__home' to={'/' + slug}>
           <ButtonSee className='orange'>see product</ButtonSee>
         </Link>
       </div>

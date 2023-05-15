@@ -1,8 +1,7 @@
 import { useSelector } from 'react-redux';
-import { getSpeakers } from '../../redux/productsRedux';
+import { getSpeakers } from '../../redux/productsRedux.js';
+import List from '../List/List.jsx';
 import './SpeakerList.scss';
-import Navbar from '../Navbar/Navbar';
-import List from '../List/List';
 
 const SpeakerList = () => {
 
@@ -11,7 +10,6 @@ const SpeakerList = () => {
 
   return (
     <div>
-      <Navbar />
       <List list={speakersList} title={title}/>
     </div>
   )

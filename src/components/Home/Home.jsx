@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import { getAllProducts } from "../../redux/productsRedux";
 import './Home.scss';
-import Navbar from "../Navbar/Navbar";
 import Container from '../Container/Container.jsx';
 import HomeHero from "../HomeHero/HomeHero";
 import Footer from "../Footer/Footer";
@@ -15,7 +14,6 @@ const Home = () => {
 
   return (
     <div className="home__wrapper">
-      <Navbar />
       <HomeHero {...products[3]} />
       <Container>
         <Dropdown />

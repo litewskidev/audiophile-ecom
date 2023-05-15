@@ -1,12 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
-import Container from '../Container/Container';
-import Navbar from '../Navbar/Navbar';
-import './Checkout.scss';
-import { getAllCart, removeAll } from '../../redux/cartRedux';
-import ButtonSee from '../ButtonSee/ButtonSee';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import Footer from '../Footer/Footer';
+import { getAllCart, removeAll } from '../../redux/cartRedux.js';
+import Container from '../Container/Container.jsx';
+import ButtonSee from '../ButtonSee/ButtonSee.jsx';
+import Footer from '../Footer/Footer.jsx';
+import './Checkout.scss';
 
 const Checkout = () => {
   const navigate = useNavigate();
@@ -35,8 +34,9 @@ const Checkout = () => {
     ePin: epin
   };
 
-  const clearCart = () => {
-    dispatch(removeAll(summary));
+  const toggleModal = () => {
+    const modal = document.querySelector('#confirm-modal');
+    modal.classList.add('on');
   };
 
   const goToTop = () => {
@@ -46,15 +46,20 @@ const Checkout = () => {
     });
   };
 
-  const toggleModal = () => {
-    const modal = document.querySelector('#confirm-modal');
-    modal.classList.add('on');
+  const clearCart = () => {
+    dispatch(removeAll(summary));
   };
 
   const totalPrice = () => {
     let total = 0;
     summary.map(product => total += (product.price * product.quantity));
     return total;
+  };
+
+  const totalItems = () => {
+    let totalCart = 0;
+    summary.map(item => totalCart += (item.quantity));
+    return totalCart;
   };
 
   const shipping = 50;
@@ -90,13 +95,11 @@ const Checkout = () => {
 
   return (
     <div>
-      <Navbar />
       <div className='check__container'>
         <Container>
           <div onClick={() => navigate(-1)}>
             <p className='check__goback'>Go Back</p>
           </div>
-
           {/* FORM */}
           <form className='check__wrapper' onSubmit={handleSubmit}>
             <div className='check__checkout'>
@@ -248,7 +251,6 @@ const Checkout = () => {
                 <ButtonSee className='orange'>continue & pay</ButtonSee>
             </div>
           </form>
-
           {/* CHECKOUT MODAL */}
           <div id='confirm-modal' className='checkout__modal'>
             <Container>
@@ -277,7 +279,7 @@ const Checkout = () => {
                     <div>
                       {(summary.length > 1) ? (
                         <div className='summary__others'>
-                          <p>and {summary.length - 1} other item(s)</p>
+                          <p>and {totalItems() - summary[0].quantity} other item(s)</p>
                         </div>
                       ) : (<p></p>)}
                     </div>
@@ -293,7 +295,6 @@ const Checkout = () => {
               </div>
             </Container>
           </div>
-
         </Container>
       </div>
       <Footer />

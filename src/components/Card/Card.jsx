@@ -1,17 +1,16 @@
-import './Card.scss';
-import ButtonSee from '../ButtonSee/ButtonSee';
-import Dropdown from '../Dropdown/Dropdown';
-import About from '../About/About';
-import Footer from '../Footer/Footer';
-import Container from '../Container/Container';
-import Navbar from '../Navbar/Navbar';
-import InputNum from '../InputNum/InputNum';
+import ButtonSee from '../ButtonSee/ButtonSee.jsx';
+import Dropdown from '../Dropdown/Dropdown.jsx';
+import About from '../About/About.jsx';
+import Footer from '../Footer/Footer.jsx';
+import Container from '../Container/Container.jsx';
+import InputNum from '../InputNum/InputNum.jsx';
 import shortid from 'shortid';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { toggleNew } from '../../utils/toggleNew';
-import { addToCart } from '../../redux/cartRedux';
+import { toggleNew } from '../../utils/toggleNew.jsx';
+import { addToCart } from '../../redux/cartRedux.js';
+import './Card.scss';
 
 const Card = ({ image, newp, name, description, price, features, includes, gallery, others, category, thumbnail, symbol, quantity, id }) => {
   const dispatch = useDispatch();
@@ -52,7 +51,6 @@ const Card = ({ image, newp, name, description, price, features, includes, galle
 
   return (
     <div className='card__wrapper'>
-      <Navbar />
       <Container>
         <div onClick={() => navigate(-1)}>
           <p className='card__goback'>Go Back</p>
@@ -102,7 +100,7 @@ const Card = ({ image, newp, name, description, price, features, includes, galle
               <div key={other.name} className='card__others__items'>
                 <img className='others__img' src={process.env.PUBLIC_URL + other.image.mobile} alt='' />
                 <h2 className='heading__h5'>{other.name}</h2>
-                <Link to={'/' + category + '/' + other.slug}>
+                <Link to={'/' + other.slug}>
                   <ButtonSee className='orange'>see product</ButtonSee>
                 </Link>
               </div>

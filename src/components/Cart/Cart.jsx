@@ -1,9 +1,9 @@
-import './Cart.scss';
-import ButtonSee from '../ButtonSee/ButtonSee';
-import CartProduct from '../CartProduct/CartProduct.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCart, removeAll } from '../../redux/cartRedux.js';
 import { useNavigate } from 'react-router-dom';
+import ButtonSee from '../ButtonSee/ButtonSee.jsx';
+import CartProduct from '../CartProduct/CartProduct.jsx';
+import './Cart.scss';
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -41,7 +41,7 @@ const Cart = () => {
       <div className='cart__products'>
         {(cart.length === 0) ? (
           <div className='text__body cart__empty'>
-            <img src={process.env.PUBLIC_URL + 'assets/cart/HighGradeHeadset.svg'} alt=''/>
+            <img src={process.env.PUBLIC_URL + './assets/cart/HighGradeHeadset.svg'} alt=''/>
             <p>Your cart is empty</p>
           </div>
         ) : (
@@ -53,7 +53,6 @@ const Cart = () => {
           <p className='cart__total'>TOTAL</p>
           <p className='cart__price'>$ {totalPrice()}</p>
         </div>
-
         <div onClick={checkout}>
           <ButtonSee className='cart__btn orange'>checkout</ButtonSee>
         </div>

@@ -1,11 +1,10 @@
-import './CartProduct.scss';
-import InputNum from '../InputNum/InputNum';
 import { useDispatch } from 'react-redux';
-import { decrementQty, incrementQty } from '../../redux/cartRedux';
+import { decrementQty, incrementQty } from '../../redux/cartRedux.js';
+import InputNum from '../InputNum/InputNum.jsx';
+import './CartProduct.scss';
 
 const CartProduct = ({ price, quantity, thumbnail, symbol, cartId }) => {
   const dispatch = useDispatch();
-
   const data = {cartId};
 
   const increment = (e) => {
