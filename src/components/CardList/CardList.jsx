@@ -19,7 +19,7 @@ const CardList = ({ categoryImage, name, description, newp, category, slug }) =>
         <h1 className='heading__h4'>{name}</h1>
         <p className='text__body'>{description}</p>
       </div>
-      <Link to={'/' + category + '/' + slug}>
+      <Link to={'/' + slug}>
       <ButtonSee className='orange'>see product</ButtonSee>
       </Link>
     </div>
