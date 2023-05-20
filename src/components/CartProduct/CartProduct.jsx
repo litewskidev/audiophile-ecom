@@ -1,9 +1,9 @@
 import { useDispatch } from 'react-redux';
-import { decrementQty, incrementQty } from '../../redux/cartRedux.js';
+import { decrementQty, incrementQty, removeFromCart } from '../../redux/cartRedux.js';
 import InputNum from '../InputNum/InputNum.jsx';
 import './CartProduct.scss';
 
-const CartProduct = ({ price, quantity, thumbnail, symbol, cartId }) => {
+const CartProduct = ({ price, quantity, thumbnail, symbol, cartId, id }) => {
   const dispatch = useDispatch();
   const data = {cartId};
 
@@ -14,16 +14,14 @@ const CartProduct = ({ price, quantity, thumbnail, symbol, cartId }) => {
 
   const decrement = (e) => {
     e.preventDefault();
-    if (quantity >= 2) {
+    if (quantity >= 1) {
     dispatch(decrementQty(data));
     }
   };
 
-  /*  REMOVE ITEM
-  const removeBtn = () => {
+  if (quantity === 0) {
     dispatch(removeFromCart(id));
-  };
-  */
+  }
 
   return (
     <div className='cartproduct__wrapper'>
