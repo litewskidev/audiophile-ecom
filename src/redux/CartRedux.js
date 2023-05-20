@@ -18,7 +18,7 @@ export const removeAll = payload => ({ type: REMOVE_ALL, payload});
 export const incrementQty = payload => ({ type: INCREMENT_QTY, payload });
 export const decrementQty = payload => ({ type: DECREMENT_QTY, payload });
 
-/*  API
+/*  API CART
 export const fetchCart = () => {
   return(dispatch) => {
     fetch("/api/cart")

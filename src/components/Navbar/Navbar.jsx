@@ -15,6 +15,11 @@ const Navbar = () => {
     cartModal.classList.toggle('open');
   };
 
+  const closeMenu = () => {
+    const dropdownMenu = document.querySelector('#dropdown');
+    dropdownMenu.classList.remove('open');
+  };
+
   return (
     <div className='navbar'>
       <div className='navbar__wrapper'>
@@ -60,7 +65,7 @@ const Navbar = () => {
           <div className='dropdown__box'>
             <img className='dropdown__img' src={`${process.env.PUBLIC_URL}/assets/shared/desktop/image-category-thumbnail-headphones.png`} alt='headphones'></img>
             <p className='dropdown__text'>headphones</p>
-            <Link className='dropdown__link' to='/headphones'><ButtonShop>shop</ButtonShop></Link>
+            <Link className='dropdown__link' to='/headphones' onClick={closeMenu}><ButtonShop>shop</ButtonShop></Link>
           </div>
         </li>
 
@@ -68,7 +73,7 @@ const Navbar = () => {
           <div className='dropdown__box'>
             <img className='dropdown__img' src={`${process.env.PUBLIC_URL}/assets/shared/desktop/image-category-thumbnail-speakers.png`} alt='speakers'></img>
             <p className='dropdown__text'>speakers</p>
-            <Link className='dropdown__link' to='/speakers'><ButtonShop>shop</ButtonShop></Link>
+            <Link className='dropdown__link' to='/speakers' onClick={closeMenu}><ButtonShop>shop</ButtonShop></Link>
           </div>
         </li>
 
@@ -76,7 +81,7 @@ const Navbar = () => {
           <div className='dropdown__box bottom__box'>
             <img className='dropdown__img' src={`${process.env.PUBLIC_URL}/assets/shared/desktop/image-category-thumbnail-earphones.png`} alt='earphones'></img>
             <p className='dropdown__text'>earphones</p>
-            <Link className='dropdown__link' to='/earphones'><ButtonShop>shop</ButtonShop></Link>
+            <Link className='dropdown__link' to='/earphones' onClick={closeMenu}><ButtonShop>shop</ButtonShop></Link>
           </div>
         </li>
 

@@ -8,7 +8,7 @@ const HomeHero = ({ newp, name, category, slug }) => {
     <div className='home__hero'>
       <div className='home__pattern'></div>
       <div className='image__hero'>
-        <img src={process.env.PUBLIC_URL + '/assets/home/mobile/image-header.jpg'} alt='' />
+        <img fetchpriority="high" src={process.env.PUBLIC_URL + '/assets/home/mobile/image-header.jpg'} alt='' />
       </div>
       <div className='info__hero'>
         <div className='info__hero__inner'>

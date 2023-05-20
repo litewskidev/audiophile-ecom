@@ -1,9 +1,22 @@
 const express = require('express');
 const path = require('path');
+const expressStaticGzip = require("express-static-gzip");
 const app = express();
 
 const cartList = [];
 const ordersList = [];
+
+// COMPRESSION
+app.use(
+  expressStaticGzip(path.join(__dirname, 'build'), {
+  }),
+);
+
+// PARSING
+app.use(express.json());
+
+//  STATIC
+app.use(express.static(path.join(__dirname, 'build')));
 
 //  API
 app.get("/api", (req, res) => {

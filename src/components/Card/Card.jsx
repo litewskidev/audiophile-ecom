@@ -44,8 +44,8 @@ const Card = ({ image, newp, name, description, price, features, includes, galle
       thumbnail
     };
     dispatch(addToCart(data));
-    //dispatch(fetchAddToCart(data));  API
-    //dispatch(fetchCart());  API
+    //dispatch(fetchAddToCart(data));  API CART
+    //dispatch(fetchCart());  API CART
     setCount(1);
   };
 

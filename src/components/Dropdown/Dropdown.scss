@@ -1,10 +1,10 @@
 @import '../../styles/settings.scss';
 
-.dropdown {
-    //margin-top: 10.75rem;
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
+.dropdown__list {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding: 0;
 
   li {
     background-color: $gray;

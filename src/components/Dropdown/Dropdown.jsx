@@ -4,7 +4,8 @@ import ButtonShop from '../ButtonShop/ButtonShop';
 
 const Dropdown = () => {
   return (
-    <div id='dropdown' className='dropdown'>
+    <div id='dropdown' >
+      <ul className='dropdown__list'>
         <li>
           <div className='dropdown__box'>
             <img className='dropdown__img' src={`${process.env.PUBLIC_URL}/assets/shared/desktop/image-category-thumbnail-headphones.png`} alt='headphones'></img>
@@ -28,7 +29,8 @@ const Dropdown = () => {
             <Link className='dropdown__link' to='/earphones'><ButtonShop>shop</ButtonShop></Link>
           </div>
         </li>
-      </div>
+      </ul>
+    </div>
   )
 };
 

@@ -2,10 +2,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getAllCart, removeAll } from '../../redux/cartRedux.js';
+import shortid from 'shortid';
 import Container from '../Container/Container.jsx';
 import ButtonSee from '../ButtonSee/ButtonSee.jsx';
 import Footer from '../Footer/Footer.jsx';
 import './Checkout.scss';
+import { fetchSendOrder } from '../../redux/ordersRedux.js';
 
 const Checkout = () => {
   const navigate = useNavigate();
@@ -19,10 +21,18 @@ const Checkout = () => {
   const [zip, setZip] = useState('');
   const [city, setCity] = useState('');
   const [country, setCountry] = useState('');
+  const [payment, setPayment] = useState('');
   const [enumber, setEnumber] = useState('');
   const [epin, setEpin] = useState('');
 
+  const orderedProducts = () => {
+    const products = [];
+    summary.map(product => products.push({Item: product.name, Qty: product.quantity}))
+    return products;
+  };
+
   const order = {
+    OrderID: shortid(),
     Name: name,
     Email: email,
     Phone: phone,
@@ -30,8 +40,10 @@ const Checkout = () => {
     ZIP: zip,
     City: city,
     Country: country,
+    Payment: payment,
     eNumber: enumber,
-    ePin: epin
+    ePin: epin,
+    Products: orderedProducts()
   };
 
   const toggleModal = () => {
@@ -69,6 +81,12 @@ const Checkout = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(order);
+    dispatch(fetchSendOrder(order));
+    toggleModal();
+    goToTop();
+  };
+
+  const handleBackToHome = () => {
     setName('');
     setEmail('');
     setPhone('');
@@ -78,12 +96,6 @@ const Checkout = () => {
     setCountry('');
     setEnumber('');
     setEpin('');
-    toggleModal();
-    goToTop();
-  };
-
-  const handleBackToHome = () => {
-    navigate('/');
     clearCart();
   };
 
@@ -116,7 +128,8 @@ const Checkout = () => {
                         type="text"
                         placeholder='Insert your name'
                         value={name}
-                        pattern='[A-Za-z]+' />
+                        pattern='[A-Za-z\s]+'
+                        required />
                     </div>
                     <div className='checkoutform__input'>
                       <label htmlFor='email'>Email Adress</label>
@@ -125,7 +138,8 @@ const Checkout = () => {
                         id='email'
                         type="email"
                         placeholder='Insert your email address'
-                        value={email} />
+                        value={email}
+                        required />
                     </div>
                     <div className='checkoutform__input'>
                       <label htmlFor='tel'>Phone Number</label>
@@ -134,7 +148,9 @@ const Checkout = () => {
                         id='tel'
                         type="tel"
                         placeholder='Insert your phone number'
-                        value={phone} />
+                        value={phone}
+                        pattern='[0-9]{9}'
+                        required />
                     </div>
                   </div>
                 </div>
@@ -148,25 +164,31 @@ const Checkout = () => {
                         id='address'
                         type="text"
                         placeholder='Insert your address'
-                        value={address} />
+                        value={address}
+                        pattern='[A-Za-z0-9/\s]+'
+                        required />
                     </div>
                     <div className='checkoutform__input'>
                       <label htmlFor='zip'>ZIP Code</label>
                       <input
                         onChange={e => setZip(e.target.value)}
                         id='zip'
-                        type="number"
+                        type="tel"
                         placeholder='Insert your ZIP code'
-                        value={zip} />
+                        value={zip}
+                        pattern='[0-9]{5}'
+                        required />
                     </div>
                     <div className='checkoutform__input'>
-                      <label  htmlFor='city'>City</label>
+                      <label htmlFor='city'>City</label>
                       <input
                         onChange={e => setCity(e.target.value)}
                         id='city'
                         type="text"
                         placeholder='Insert your city'
-                        value={city} />
+                        value={city}
+                        pattern='[A-Za-z\s]+'
+                        required />
                     </div>
                     <div className='checkoutform__input'>
                       <label htmlFor='country'>Country</label>
@@ -175,19 +197,31 @@ const Checkout = () => {
                         id='country'
                         type="text"
                         placeholder='Insert your country'
-                        value={country} />
+                        value={country}
+                        pattern='[A-Za-z\s]+'
+                        required />
                     </div>
                   </div>
                 </div>
                 <div className='checkout__box'>
                   <p className='checkout__box__desc'>PAYMENT DETAILS</p>
                   <div className='checkoutform__payment'>
+                    <label>Payment Method</label>
                     <div className='checkoutform__radio'>
-                      <input className='radio__item' id='money' type="radio"/>
+                      <input className='radio__item'
+                        id='money' name='radio'
+                        type="radio"
+                        value="e-Money"
+                        onChange={e => setPayment(e.target.value)}
+                        defaultChecked />
                       <label className='radio__label' htmlFor='money'>e-Money</label>
                     </div>
                     <div className='checkoutform__radio'>
-                      <input className='radio__item' id='cash' type="radio" />
+                      <input className='radio__item'
+                        id='cash' name='radio'
+                        type="radio"
+                        value="Cash on Delivery"
+                        onChange={e => setPayment(e.target.value)} />
                       <label className='radio__label' htmlFor='cash'>Cash on Delivery</label>
                     </div>
                     <div className='checkoutform__input'>
@@ -195,18 +229,22 @@ const Checkout = () => {
                       <input
                         onChange={e => setEnumber(e.target.value)}
                         id='e-number'
-                        type="number"
+                        type="tel"
                         placeholder='Insert your e-Money number'
-                        value={enumber} />
+                        value={enumber}
+                        pattern='[0-9]{16}'
+                        required />
                     </div>
                     <div className='checkoutform__input'>
                       <label htmlFor='e-pin'>e-Money PIN</label>
                       <input
                         onChange={e => setEpin(e.target.value)}
                         id='e-pin'
-                        type="number"
+                        type="tel"
                         placeholder='Insert your e-Money PIN'
-                        value={epin} />
+                        value={epin}
+                        pattern='[0-9]{3}'
+                        required />
                     </div>
                   </div>
                 </div>

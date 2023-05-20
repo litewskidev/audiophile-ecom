@@ -20,7 +20,7 @@ const CardList = ({ categoryImage, name, description, newp, category, slug }) =>
         <p className='text__body'>{description}</p>
       </div>
       <Link to={'/' + slug}>
-      <ButtonSee className='orange'>see product</ButtonSee>
+        <ButtonSee className='orange'>see product</ButtonSee>
       </Link>
     </div>
   )

@@ -68,7 +68,7 @@
     font-size: 0.875rem;
     font-weight: 700;
     font-family: $font-text;
-    border: 1px solid $gray-dark;
+    border: 0.063rem solid $gray-dark;
     border-radius: 0.5rem;
     padding: 1.125rem 1.5rem;
     outline: none;
@@ -79,11 +79,11 @@
     }
 
     &:focus {
-      border: 1px solid $orange-dark;
+      border: 0.063rem solid $orange-dark;
     }
 
     &:focus:invalid {
-      border: 2px solid $red;
+      border: 0.125rem solid $red;
 
       label {
         color: $red;
@@ -96,18 +96,66 @@
   }
 }
 
+//  RADIO
+.checkoutform__payment {
+
+  label {
+  font-size: 0.75rem;
+  font-weight: 900;
+  }
+}
 .checkoutform__radio {
   display: flex;
   align-items: center;
   gap: 1rem;
   padding: 1.125rem 1rem;
-  border: 1px solid $gray-dark;
+  border: 0.063rem solid $gray-dark;
   border-radius: 0.5rem;
   font-size: 0.875rem;
   font-weight: 900;
   font-family: $font-text;
+
+    input {
+      cursor: pointer;
+    }
 }
 
+.radio__item {
+  appearance: none;
+  background-color: $white;
+  width: 20px;
+  height: 20px;
+  border: 0.063rem solid $gray-dark;
+  margin: 0;
+  border-radius: 50%;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.radio__item::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 0.2s transform ease-in-out;
+  box-shadow: inset 10px 10px $orange-dark;
+}
+
+.radio__item:checked {
+  background: $white;
+  border-color: $gray-dark;
+}
+
+.checkoutform__radio.checked {
+  border: 0.063rem solid $orange-dark;
+}
+
+.radio__item:checked::before {
+  transform: scale(1);
+}
 
 //  SUMMARY
 .check__summary {
@@ -191,7 +239,6 @@
 
 
 //  CHECKOUT MODAL
-
 .checkout__modal {
   display: none;
 }
@@ -202,8 +249,10 @@
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.3);
-  height: 100vh;
+  height: 130%;
+  width: 100%;
 }
+
 .checkout__modal__wrapper {
   margin-top: 8.438rem;
   background: $white;
@@ -225,16 +274,16 @@
   gap: 1rem;
 
   p:first-of-type {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 900;
-    line-height: 28px;
+    line-height: 1.75rem;
     text-transform: uppercase;
   }
 
   p:last-of-type {
-    font-size: 15px;
+    font-size: 0.938rem;
     font-weight: 600;
-    line-height: 25px;
+    line-height: 1.563rem;
     opacity: 0.5;
   }
 }
@@ -251,14 +300,14 @@
 .summary__others {
   margin-top: 0.75rem;
   text-align: center;
-  border-top: 1px solid rgb(0, 0, 0, 0.2);
+  border-top: 0.063rem solid rgb(0, 0, 0, 0.2);
   opacity: 0.6;
   padding-top: 0.75rem;
 
   p {
-    font-size: 12px;
+    font-size: 0.75rem;
     font-weight: 900;
-    line-height: 16px;
+    line-height: 1rem;
   }
 }
 
@@ -273,17 +322,17 @@
   padding: 1rem 1.5rem;
 
   p:first-of-type {
-    font-size: 15px;
+    font-size: 0.938rem;
     font-weight: 400;
-    line-height: 25px;
+    line-height: 1.563rem;
     text-transform: uppercase;
     opacity: 0.5;
   }
 
   p:last-of-type {
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 700;
-    line-height: 25px;
+    line-height: 1.563rem;
   }
 }
 

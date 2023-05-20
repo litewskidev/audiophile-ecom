@@ -16,10 +16,9 @@ const App = () => {
 
   useEffect(() => dispatch(fetchProducts()), [dispatch]);
 
-  /*  API
+  /*  API CART
   useEffect(() => dispatch(fetchCart()), [dispatch]);
   */
-
   return (
     <main>
       <Navbar />

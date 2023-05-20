@@ -26,9 +26,15 @@ const Cart = () => {
     dispatch(removeAll(cart));
   };
 
+  const closeCart = () => {
+    const cartModal = document.querySelector('#cart');
+    cartModal.classList.remove('open');
+  };
+
   const checkout = () => {
     if (cart.length > 0) {
       navigate('/checkout');
+      closeCart();
     }
   };
 
@@ -53,7 +59,7 @@ const Cart = () => {
           <p className='cart__total'>TOTAL</p>
           <p className='cart__price'>$ {totalPrice()}</p>
         </div>
-        <div onClick={checkout}>
+        <div onClick={checkout} >
           <ButtonSee className='cart__btn orange'>checkout</ButtonSee>
         </div>
       </div>
