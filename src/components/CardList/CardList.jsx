@@ -1,14 +1,15 @@
-import './CardList.scss';
-import ButtonSee from '../ButtonSee/ButtonSee.jsx';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toggleNew } from '../../utils/toggleNew';
+import ButtonSee from '../ButtonSee/ButtonSee.jsx';
+import './CardList.scss';
 
-const CardList = ({ categoryImage, name, description, newp, category, slug }) => {
+const CardList = ({ categoryImage, name, description, newp, slug }) => {
+  const navigate = useNavigate();
 
   return (
     <div className='cardlist'>
       <div className='cardlist__wrapper'>
-        <img src={process.env.PUBLIC_URL + categoryImage.desktop} alt='' />
+        <img src={process.env.PUBLIC_URL + categoryImage.desktop} alt='products' />
         <div>
           {(toggleNew(newp) === true) ? (
             <p className='text__overline'>NEW PRODUCT</p>
@@ -19,9 +20,9 @@ const CardList = ({ categoryImage, name, description, newp, category, slug }) =>
         <h1 className='heading__h4'>{name}</h1>
         <p className='text__body'>{description}</p>
       </div>
-      <Link to={'/' + slug}>
+      <div onClick={() => navigate('/' + slug)}>
         <ButtonSee className='orange'>see product</ButtonSee>
-      </Link>
+      </div>
     </div>
   )
 };

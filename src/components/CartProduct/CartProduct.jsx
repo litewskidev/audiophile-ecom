@@ -28,7 +28,7 @@ const CartProduct = ({ price, quantity, thumbnail, symbol, cartId }) => {
   return (
     <div className='cartproduct__wrapper'>
       <div className='cart__product__data'>
-        <img src={process.env.PUBLIC_URL + thumbnail} alt=''/>
+        <img src={process.env.PUBLIC_URL + thumbnail} alt='product thumbnail'/>
         <div className='cartproduct__info'>
           <p className='cartproduct__symbol'>{symbol}</p>
           <p className='cartproduct__price'>$ {price}</p>

@@ -1,17 +1,16 @@
 import { useSelector } from "react-redux";
-import { getAllProducts } from "../../redux/productsRedux";
-import './Home.scss';
+import { getAllProducts } from "../../redux/productsRedux.js";
 import Container from '../Container/Container.jsx';
-import HomeHero from "../HomeHero/HomeHero";
-import Footer from "../Footer/Footer";
-import Dropdown from "../Dropdown/Dropdown";
-import About from "../About/About";
-import HomeOthers from "../HomeOthers/HomeOthers";
+import HomeHero from "../HomeHero/HomeHero.jsx";
+import Footer from "../Footer/Footer.jsx";
+import Dropdown from "../Dropdown/Dropdown.jsx";
+import About from "../About/About.jsx";
+import HomeOthers from "../HomeOthers/HomeOthers.jsx";
+import './Home.scss';
 
 const Home = () => {
   const products = useSelector(getAllProducts);
-  console.log(products);
-
+  
   return (
     <div className="home__wrapper">
       <HomeHero {...products[3]} />

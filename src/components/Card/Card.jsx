@@ -1,3 +1,8 @@
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { toggleNew } from '../../utils/toggleNew.js';
+import { addToCart } from '../../redux/cartRedux.js';
 import ButtonSee from '../ButtonSee/ButtonSee.jsx';
 import Dropdown from '../Dropdown/Dropdown.jsx';
 import About from '../About/About.jsx';
@@ -5,14 +10,9 @@ import Footer from '../Footer/Footer.jsx';
 import Container from '../Container/Container.jsx';
 import InputNum from '../InputNum/InputNum.jsx';
 import shortid from 'shortid';
-import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { toggleNew } from '../../utils/toggleNew.jsx';
-import { addToCart } from '../../redux/cartRedux.js';
 import './Card.scss';
 
-const Card = ({ image, newp, name, description, price, features, includes, gallery, others, category, thumbnail, symbol, quantity, id }) => {
+const Card = ({ image, newp, name, description, price, features, includes, gallery, others, thumbnail, symbol, quantity, id }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -56,7 +56,7 @@ const Card = ({ image, newp, name, description, price, features, includes, galle
           <p className='card__goback'>Go Back</p>
         </div>
         <div className='card__image'>
-          <img src={process.env.PUBLIC_URL + image.desktop} alt='' />
+          <img src={process.env.PUBLIC_URL + image.desktop} alt='product' />
         </div>
         <div className='card__info'>
           <div>
@@ -90,19 +90,19 @@ const Card = ({ image, newp, name, description, price, features, includes, galle
           </div>
         </div>
         <div className='card__gallery'>
-          <img src={process.env.PUBLIC_URL + gallery.first.desktop} alt='' />
-          <img src={process.env.PUBLIC_URL + gallery.second.desktop} alt='' />
-          <img src={process.env.PUBLIC_URL + gallery.third.desktop} alt='' />
+          <img src={process.env.PUBLIC_URL + gallery.first.desktop} alt='product ad' />
+          <img src={process.env.PUBLIC_URL + gallery.second.desktop} alt='product ad' />
+          <img src={process.env.PUBLIC_URL + gallery.third.desktop} alt='product ad' />
         </div>
         <div className='card__others'>
           <h2 className='heading__h5'>you may also like</h2>
             {others.map(other =>
               <div key={other.name} className='card__others__items'>
-                <img className='others__img' src={process.env.PUBLIC_URL + other.image.mobile} alt='' />
+                <img className='others__img' src={process.env.PUBLIC_URL + other.image.mobile} alt='product' />
                 <h2 className='heading__h5'>{other.name}</h2>
-                <Link to={'/' + other.slug}>
+                <div onClick={() => navigate('/' + other.slug)}>
                   <ButtonSee className='orange'>see product</ButtonSee>
-                </Link>
+                </div>
               </div>
             )}
         </div>

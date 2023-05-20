@@ -4,7 +4,6 @@ import List from '../List/List.jsx';
 import './SpeakerList.scss';
 
 const SpeakerList = () => {
-
   const title = 'speakers';
   const speakersList = useSelector(getSpeakers);
 

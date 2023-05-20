@@ -1,9 +1,13 @@
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { getAllCart } from '../../redux/cartRedux';
+import { totalItems } from '../../utils/totalItems';
+import ButtonShop from '../ButtonShop/ButtonShop.jsx';
+import Cart from '../Cart/Cart.jsx';
 import './Navbar.scss';
-import ButtonShop from '../ButtonShop/ButtonShop';
-import Cart from '../Cart/Cart';
 
 const Navbar = () => {
+  const cart = useSelector(getAllCart);
 
   const toggleMenu = () => {
     const dropdownMenu = document.querySelector('#dropdown');
@@ -24,7 +28,7 @@ const Navbar = () => {
     <div className='navbar'>
       <div className='navbar__wrapper'>
         <div className='dropdown__toggle__btn' onClick={toggleMenu}>
-          <img src={`${process.env.PUBLIC_URL}/assets/shared/tablet/icon-hamburger.svg`} alt='icon' />
+          <img src={`${process.env.PUBLIC_URL}/assets/shared/tablet/icon-hamburger.svg`} alt='hamburger icon' />
         </div>
         <Link to='/'>
         <div className='navbar__logo'>
@@ -54,7 +58,12 @@ const Navbar = () => {
           </li>
         </ul>
           <div className='navbar__cart__btn' onClick={toggleCart}>
-            <img src={`${process.env.PUBLIC_URL}/assets/shared/desktop/icon-cart.svg`} alt='hamburger icon' />
+            <img src={`${process.env.PUBLIC_URL}/assets/shared/desktop/icon-cart.svg`} alt='cart icon' />
+            {(cart.length > 0) ? (
+              <p className='cart__qty'>{totalItems(cart)}</p>
+            ) : (
+              <p></p>
+            )}
           </div>
       </div>
       <div className='pattern'></div>

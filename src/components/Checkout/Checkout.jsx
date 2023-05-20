@@ -2,12 +2,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getAllCart, removeAll } from '../../redux/cartRedux.js';
+import { fetchSendOrder } from '../../redux/ordersRedux.js';
+import { totalItems } from '../../utils/totalItems.js';
+import { totalPrice } from '../../utils/totalPrice.js';
+import { goToTop } from '../../utils/goToTop.js';
 import shortid from 'shortid';
 import Container from '../Container/Container.jsx';
 import ButtonSee from '../ButtonSee/ButtonSee.jsx';
 import Footer from '../Footer/Footer.jsx';
 import './Checkout.scss';
-import { fetchSendOrder } from '../../redux/ordersRedux.js';
 
 const Checkout = () => {
   const navigate = useNavigate();
@@ -25,12 +28,29 @@ const Checkout = () => {
   const [enumber, setEnumber] = useState('');
   const [epin, setEpin] = useState('');
 
+  const toggleModal = () => {
+    const modal = document.querySelector('#confirm-modal');
+    modal.classList.add('on');
+  };
+
+  const clearCart = () => {
+    dispatch(removeAll(summary));
+  };
+
+  const closeCart = () => {
+    const cartModal = document.querySelector('#cart');
+    cartModal.classList.remove('open');
+  };
+
   const orderedProducts = () => {
     const products = [];
     summary.map(product => products.push({Item: product.name, Qty: product.quantity}))
     return products;
   };
 
+  const shipping = 50;
+  const vat = (totalPrice(summary) * 0.2).toFixed();
+  const gTotal = totalPrice(summary) + shipping;
   const order = {
     OrderID: shortid(),
     Name: name,
@@ -46,38 +66,6 @@ const Checkout = () => {
     Products: orderedProducts()
   };
 
-  const toggleModal = () => {
-    const modal = document.querySelector('#confirm-modal');
-    modal.classList.add('on');
-  };
-
-  const goToTop = () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-    });
-  };
-
-  const clearCart = () => {
-    dispatch(removeAll(summary));
-  };
-
-  const totalPrice = () => {
-    let total = 0;
-    summary.map(product => total += (product.price * product.quantity));
-    return total;
-  };
-
-  const totalItems = () => {
-    let totalCart = 0;
-    summary.map(item => totalCart += (item.quantity));
-    return totalCart;
-  };
-
-  const shipping = 50;
-  const vat = (totalPrice() * 0.2).toFixed();
-  const gTotal = totalPrice() + shipping;
-
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(order);
@@ -86,7 +74,8 @@ const Checkout = () => {
     goToTop();
   };
 
-  const handleBackToHome = () => {
+  const handleBackToHome = (e) => {
+    e.preventDefault()
     setName('');
     setEmail('');
     setPhone('');
@@ -102,6 +91,7 @@ const Checkout = () => {
   useEffect(() => {
     if (summary.length === 0) {
       navigate('/');
+      closeCart();
     }
   }, [navigate, summary.length]);
 
@@ -126,7 +116,7 @@ const Checkout = () => {
                         onChange={e => setName(e.target.value)}
                         id='name'
                         type="text"
-                        placeholder='Insert your name'
+                        placeholder='Alexei Ward'
                         value={name}
                         pattern='[A-Za-z\s]+'
                         required />
@@ -137,7 +127,7 @@ const Checkout = () => {
                         onChange={e => setEmail(e.target.value)}
                         id='email'
                         type="email"
-                        placeholder='Insert your email address'
+                        placeholder='alexei@mail.com'
                         value={email}
                         required />
                     </div>
@@ -147,7 +137,7 @@ const Checkout = () => {
                         onChange={e => setPhone(e.target.value)}
                         id='tel'
                         type="tel"
-                        placeholder='Insert your phone number'
+                        placeholder='202555013'
                         value={phone}
                         pattern='[0-9]{9}'
                         required />
@@ -163,7 +153,7 @@ const Checkout = () => {
                         onChange={e => setAddress(e.target.value)}
                         id='address'
                         type="text"
-                        placeholder='Insert your address'
+                        placeholder='1137 Williams Avenue'
                         value={address}
                         pattern='[A-Za-z0-9/\s]+'
                         required />
@@ -174,7 +164,7 @@ const Checkout = () => {
                         onChange={e => setZip(e.target.value)}
                         id='zip'
                         type="tel"
-                        placeholder='Insert your ZIP code'
+                        placeholder='10001'
                         value={zip}
                         pattern='[0-9]{5}'
                         required />
@@ -185,7 +175,7 @@ const Checkout = () => {
                         onChange={e => setCity(e.target.value)}
                         id='city'
                         type="text"
-                        placeholder='Insert your city'
+                        placeholder='New York'
                         value={city}
                         pattern='[A-Za-z\s]+'
                         required />
@@ -196,7 +186,7 @@ const Checkout = () => {
                         onChange={e => setCountry(e.target.value)}
                         id='country'
                         type="text"
-                        placeholder='Insert your country'
+                        placeholder='United States'
                         value={country}
                         pattern='[A-Za-z\s]+'
                         required />
@@ -230,9 +220,9 @@ const Checkout = () => {
                         onChange={e => setEnumber(e.target.value)}
                         id='e-number'
                         type="tel"
-                        placeholder='Insert your e-Money number'
+                        placeholder='238521993'
                         value={enumber}
-                        pattern='[0-9]{16}'
+                        pattern='[0-9]{9}'
                         required />
                     </div>
                     <div className='checkoutform__input'>
@@ -241,9 +231,9 @@ const Checkout = () => {
                         onChange={e => setEpin(e.target.value)}
                         id='e-pin'
                         type="tel"
-                        placeholder='Insert your e-Money PIN'
+                        placeholder='1001'
                         value={epin}
-                        pattern='[0-9]{3}'
+                        pattern='[0-9]{4}'
                         required />
                     </div>
                   </div>
@@ -256,7 +246,7 @@ const Checkout = () => {
                 {summary.map(product =>
                 <div key={product.cartId} className='summary__product'>
                   <div className='summary__product__left'>
-                    <img src={process.env.PUBLIC_URL + product.thumbnail} alt=''></img>
+                    <img src={process.env.PUBLIC_URL + product.thumbnail} alt='product thumbnail'></img>
                     <div className='summary__product__info'>
                       <p className='summary__symbol'>{product.symbol}</p>
                       <p className='summary__price'>$ {product.price}</p>
@@ -270,7 +260,7 @@ const Checkout = () => {
                 <div className='summary__bottom__inner'>
                   <div className='summary__box'>
                     <p className='summary__left'>TOTAL</p>
-                    <p className='summary__right'>$ {totalPrice()}</p>
+                    <p className='summary__right'>$ {totalPrice(summary)}</p>
                   </div>
                   <div className='summary__box'>
                     <p className='summary__left'>SHIPPING</p>
@@ -293,7 +283,7 @@ const Checkout = () => {
           <div id='confirm-modal' className='checkout__modal'>
             <Container>
               <div className='checkout__modal__wrapper'>
-                <img src={process.env.PUBLIC_URL + 'assets/checkout/icon-order-confirmation.svg'} alt=''></img>
+                <img src={process.env.PUBLIC_URL + 'assets/checkout/icon-order-confirmation.svg'} alt='confirmation sign'></img>
                 <div className='checkout__modal__text'>
                   <p>thank you<br />for your order</p>
                   <p>You will receive an email confirmation shortly.</p>
@@ -304,7 +294,7 @@ const Checkout = () => {
                       {summary.slice(0,1).map(product =>
                         <div key={product.cartId} className='summary__product'>
                         <div className='summary__product__left'>
-                          <img src={process.env.PUBLIC_URL + product.thumbnail} alt=''></img>
+                          <img src={process.env.PUBLIC_URL + product.thumbnail} alt='product thumbnail'></img>
                           <div className='summary__product__info'>
                             <p className='summary__symbol'>{product.symbol}</p>
                             <p className='summary__price'>$ {product.price}</p>
@@ -317,14 +307,14 @@ const Checkout = () => {
                     <div>
                       {(summary.length > 1) ? (
                         <div className='summary__others'>
-                          <p>and {totalItems() - summary[0].quantity} other item(s)</p>
+                          <p>and {totalItems(summary) - summary[0].quantity} other item(s)</p>
                         </div>
                       ) : (<p></p>)}
                     </div>
                   </div>
                   <div className='checkout__modal__grand'>
                     <p>grand total</p>
-                    <p>$ {totalPrice()}</p>
+                    <p>$ {gTotal}</p>
                   </div>
                 </div>
                 <div onClick={handleBackToHome}>

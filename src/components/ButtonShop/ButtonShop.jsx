@@ -7,6 +7,6 @@ const ButtonShop = props => {
       <img className='arrow' src={`${process.env.PUBLIC_URL}/assets/shared/desktop/icon-arrow-right.svg`} alt='shop' />
     </div>
   )
-}
+};
 
 export default ButtonShop;
