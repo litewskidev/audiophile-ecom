@@ -285,6 +285,11 @@
     line-height: 1.563rem;
     opacity: 0.5;
   }
+
+  span {
+    text-transform: none;
+    color: $orange-dark;
+  }
 }
 
 .checkout__modal__products{

@@ -3,7 +3,7 @@ import { decrementQty, incrementQty, removeFromCart } from '../../redux/cartRedu
 import InputNum from '../InputNum/InputNum.jsx';
 import './CartProduct.scss';
 
-const CartProduct = ({ price, quantity, thumbnail, symbol, cartId, id }) => {
+const CartProduct = ({ price, quantity, thumbnail, symbol, cartId }) => {
   const dispatch = useDispatch();
   const data = {cartId};
 
@@ -20,7 +20,7 @@ const CartProduct = ({ price, quantity, thumbnail, symbol, cartId, id }) => {
   };
 
   if (quantity === 0) {
-    dispatch(removeFromCart(id));
+    dispatch(removeFromCart(cartId));
   }
 
   return (

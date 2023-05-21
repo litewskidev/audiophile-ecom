@@ -57,7 +57,7 @@ const cartReducer = (statePart = [], action) => {
         else
         return [...statePart, {...action.payload}]
     case REMOVE_FROM_CART:
-      return statePart.filter(product => product.id !== action.payload);
+      return statePart.filter(product => product.cartId !== action.payload);
     case REMOVE_ALL:
       return []
     case INCREMENT_QTY:

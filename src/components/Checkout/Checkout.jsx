@@ -285,7 +285,7 @@ const Checkout = () => {
               <div className='checkout__modal__wrapper'>
                 <img src={process.env.PUBLIC_URL + 'assets/checkout/icon-order-confirmation.svg'} alt='confirmation sign'></img>
                 <div className='checkout__modal__text'>
-                  <p>thank you<br />for your order</p>
+                  <p>thank you<br />for your order<br />ID: <span>{order.OrderID}</span></p>
                   <p>You will receive an email confirmation shortly.</p>
                 </div>
                 <div>
