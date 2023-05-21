@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { toggleNew } from '../../utils/toggleNew.js';
 import { addToCart } from '../../redux/cartRedux.js';
+import { loadingSpinner } from '../../utils/loadingSpinner/loadingSpinner.js';
 import ButtonSee from '../ButtonSee/ButtonSee.jsx';
 import Dropdown from '../Dropdown/Dropdown.jsx';
 import About from '../About/About.jsx';
@@ -48,6 +49,11 @@ const Card = ({ image, newp, name, description, price, features, includes, galle
     //dispatch(fetchCart());  API CART
     setCount(1);
   };
+
+  if(!{ image, newp, name, description, price, features, includes, gallery, others, thumbnail, symbol, quantity, id }) {
+    return loadingSpinner();
+  }
+  else
 
   return (
     <div className='card__wrapper'>

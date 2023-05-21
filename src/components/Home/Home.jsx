@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { getAllProducts } from "../../redux/productsRedux.js";
+import { loadingSpinner } from "../../utils/loadingSpinner/loadingSpinner.js";
 import Container from '../Container/Container.jsx';
 import HomeHero from "../HomeHero/HomeHero.jsx";
 import Footer from "../Footer/Footer.jsx";
@@ -10,7 +11,11 @@ import './Home.scss';
 
 const Home = () => {
   const products = useSelector(getAllProducts);
-  
+
+  if(products) {
+    return loadingSpinner();
+  }
+
   return (
     <div className="home__wrapper">
       <HomeHero {...products[3]} />
