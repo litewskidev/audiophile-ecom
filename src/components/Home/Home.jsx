@@ -12,7 +12,7 @@ import './Home.scss';
 const Home = () => {
   const products = useSelector(getAllProducts);
 
-  if(products) {
+  if(!products) {
     return loadingSpinner();
   }
 

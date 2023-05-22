@@ -13,6 +13,23 @@
   text-align: center;
   color: $white;
   padding: 3.438rem 1.5rem;
+
+
+  picture {
+    z-index: 10;
+    position: relative;
+  }
+
+  .box__one__pattern {
+    position: absolute;
+    width: 100%;
+    top: 6%;
+    z-index: 0;
+  }
+
+  .box__one__btn {
+    z-index: 10;
+  }
 }
 
 .box__one__inner {
@@ -47,6 +64,9 @@
 }
 
 .box__three {
+  display: flex;
+  flex-direction: column;
+
   img {
     border-radius: 0.5rem;
     width: 100%;
@@ -60,7 +80,55 @@
 
 .box__four__inner {
   padding: 2.563rem 1.5rem;
+
   p {
     margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 1023.98px) {
+
+  .box__one {
+    .box__one__pattern {
+      top: 8rem;
+    }
+  }
+
+  .box__three {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.688rem;
+
+    picture {
+      width: 50%;
+    }
+  }
+
+  .box__four {
+    padding: 1rem 1.2rem;
+    flex: 1;
+  }
+}
+
+@media (max-width: 540px) {
+
+  .box__one {
+    .box__one__pattern {
+      top: 44rem;
+    }
+  }
+
+  .box__three {
+    flex-direction: column;
+    gap: 1.5rem;
+
+    picture {
+      width: 100%;
+    }
+  }
+
+  .box__four {
+    padding: 0;
   }
 }

@@ -30,12 +30,14 @@ const Footer = () => {
         </li>
       </ul>
       <p className='text__body'>Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers and sound specialists who are devoted to helping you get the most out of personal audio. Visit our demo facility - we’re open 7 days a week.</p>
-      <p className='text__body'>Copyright 2023. All Rights Reserved</p>
-      <ul className='footer__icons'>
-        <li><a href='#'><img src={`${process.env.PUBLIC_URL}/assets/shared/desktop/icon-facebook.svg`} alt='facebook' /></a></li>
-        <li><a href='#'><img src={`${process.env.PUBLIC_URL}/assets/shared/desktop/icon-instagram.svg`} alt='instagram' /></a></li>
-        <li><a href='#'><img src={`${process.env.PUBLIC_URL}/assets/shared/desktop/icon-twitter.svg`} alt='twitter' /></a></li>
-      </ul>
+      <div className='footer__bottom'>
+        <p className='text__body'>Copyright 2023. All Rights Reserved</p>
+        <ul className='footer__icons'>
+          <li><a href='#'><img src={`${process.env.PUBLIC_URL}/assets/shared/desktop/icon-facebook.svg`} alt='facebook' /></a></li>
+          <li><a href='#'><img src={`${process.env.PUBLIC_URL}/assets/shared/desktop/icon-instagram.svg`} alt='instagram' /></a></li>
+          <li><a href='#'><img src={`${process.env.PUBLIC_URL}/assets/shared/desktop/icon-twitter.svg`} alt='twitter' /></a></li>
+        </ul>
+      </div>
     </div>
   )
 };

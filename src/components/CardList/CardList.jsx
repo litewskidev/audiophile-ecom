@@ -9,7 +9,11 @@ const CardList = ({ categoryImage, name, description, newp, slug }) => {
   return (
     <div className='cardlist'>
       <div className='cardlist__wrapper'>
-        <img src={process.env.PUBLIC_URL + categoryImage.desktop} alt='products' />
+        <picture>
+          <source media='(max-width: 540px)' srcSet={process.env.PUBLIC_URL + categoryImage.mobile} />
+          <source media='(max-width: 1023.98px)' srcSet={process.env.PUBLIC_URL + categoryImage.tablet}/>
+          <img src={process.env.PUBLIC_URL + categoryImage.desktop} alt='products' />
+        </picture>
         <div>
           {(toggleNew(newp) === true) ? (
             <p className='text__overline'>NEW PRODUCT</p>

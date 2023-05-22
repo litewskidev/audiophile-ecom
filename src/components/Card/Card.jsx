@@ -62,7 +62,11 @@ const Card = ({ image, newp, name, description, price, features, includes, galle
           <p className='card__goback'>Go Back</p>
         </div>
         <div className='card__image'>
-          <img src={process.env.PUBLIC_URL + image.desktop} alt='product' />
+          <picture>
+            <source media='(max-width: 540px)' srcSet={process.env.PUBLIC_URL + image.mobile} />
+            <source media='(max-width: 1023.98)' srcSet={process.env.PUBLIC_URL + image.tablet} />
+            <img src={process.env.PUBLIC_URL + image.desktop} alt='product' />
+          </picture>
         </div>
         <div className='card__info'>
           <div>
@@ -96,9 +100,21 @@ const Card = ({ image, newp, name, description, price, features, includes, galle
           </div>
         </div>
         <div className='card__gallery'>
-          <img src={process.env.PUBLIC_URL + gallery.first.desktop} alt='product ad' />
-          <img src={process.env.PUBLIC_URL + gallery.second.desktop} alt='product ad' />
-          <img src={process.env.PUBLIC_URL + gallery.third.desktop} alt='product ad' />
+          <picture>
+            <source media='(max-width: 540px)' srcSet={process.env.PUBLIC_URL + gallery.first.mobile} />
+            <source media='(max-width: 1023.98px)' srcSet={process.env.PUBLIC_URL + gallery.first.tablet} />
+            <img src={process.env.PUBLIC_URL + gallery.first.desktop} alt='product ad' />
+          </picture>
+          <picture>
+            <source media='(max-width: 540px)' srcSet={process.env.PUBLIC_URL + gallery.second.mobile} />
+            <source media='(max-width: 1023.98px)' srcSet={process.env.PUBLIC_URL + gallery.second.tablet} />
+            <img src={process.env.PUBLIC_URL + gallery.second.desktop} alt='product ad' />
+          </picture>
+          <picture>
+            <source media='(max-width: 540px)' srcSet={process.env.PUBLIC_URL + gallery.third.mobile} />
+            <source media='(max-width: 1023.98px)' srcSet={process.env.PUBLIC_URL + gallery.third.tablet} />
+            <img src={process.env.PUBLIC_URL + gallery.third.desktop} alt='product ad' />
+          </picture>
         </div>
         <div className='card__others'>
           <h2 className='heading__h5'>you may also like</h2>
