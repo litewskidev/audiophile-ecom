@@ -1,14 +1,16 @@
 @import '../../styles/settings.scss';
 
 .about__wrapper {
-  margin-top: 7.5rem;
+  margin-top: 12.5rem;
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  text-align: center;
+  text-align: start;
+  justify-content: center;
+  align-items: center;
+  gap: 3.75rem;
 
   img {
-    max-width: 100%;
+    width: 100%;
+    border-radius: 0.5rem;
   }
 
   span {
@@ -16,11 +18,62 @@
   }
 
   h1 {
+    font-size: 2.5rem;
+    line-height: 2.75rem;
     letter-spacing: 1px !important;
     font-weight: 900 !important;
   }
 
   p {
     opacity: 0.6;
+  }
+}
+
+.about__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 50%;
+  padding-right: 4.5rem;
+}
+
+@media (max-width: 1023.98px) {
+  .about__wrapper {
+    margin-top: 7.5rem;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2rem;
+    text-align: center;
+
+    img {
+      max-width: 100%;
+    }
+
+    span {
+      color: $orange-dark;
+    }
+
+    h1 {
+      letter-spacing: 1px !important;
+      font-weight: 900 !important;
+    }
+
+    p {
+      opacity: 0.6;
+    }
+  }
+
+  .about__info {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+@media (max-width: 540px) {
+  .about__wrapper {
+    h1 {
+      font-size: 1.75rem;
+      line-height: 2.375rem;
+    }
   }
 }

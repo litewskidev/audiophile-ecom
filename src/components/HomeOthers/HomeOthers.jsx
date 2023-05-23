@@ -9,19 +9,24 @@ const HomeOthers = () => {
     <div className='homeothers__wrapper'>
       <div className='box__one'>
         <div className='box__one__inner'>
-          <picture>
-            <source media='(max-width: 540px)' srcSet={process.env.PUBLIC_URL + '/assets/home/mobile/image-speaker-zx9.png'} />
-            <source media='(max-width: 1023.98px' srcSet={process.env.PUBLIC_URL + '/assets/home/tablet/image-speaker-zx9.png'} />
-            <img src={process.env.PUBLIC_URL + '/assets/home/desktop/image-speaker-zx9.png'} alt='speaker' />
-          </picture>
-          <img className='box__one__pattern' src={process.env.PUBLIC_URL + '/assets/home/desktop/pattern-circles.svg'} alt='pattern' />
-          <p className='heading__h2'>zx9<br />speaker</p>
-          <p className='text__body'>Upgrade to premium speakers that are<br />phenomenally built to deliver truly<br />remarkable sound.</p>
-        </div>
-        <div className='box__one__btn' onClick={() => navigate('/zx9-speaker')}>
-          <ButtonSee className='black'>see product</ButtonSee>
+          <div>
+            <picture className='box__one__picture'>
+              <source media='(max-width: 540px)' srcSet={process.env.PUBLIC_URL + '/assets/home/mobile/image-speaker-zx9.png'} />
+              <source media='(max-width: 1023.98px' srcSet={process.env.PUBLIC_URL + '/assets/home/tablet/image-speaker-zx9.png'} />
+              <img src={process.env.PUBLIC_URL + '/assets/home/desktop/image-speaker-zx9.png'} alt='speaker' />
+            </picture>
+            <img className='box__one__pattern' src={process.env.PUBLIC_URL + '/assets/home/desktop/pattern-circles.svg'} alt='pattern' />
+          </div>
+          <div className='box__one__info'>
+            <p className='heading__h2'>zx9<br />speaker</p>
+            <p className='text__body'>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
+            <div className='box__one__btn' onClick={() => navigate('/zx9-speaker')}>
+              <ButtonSee className='black'>see product</ButtonSee>
+            </div>
+          </div>
         </div>
       </div>
+      <div className='hidden__box'></div>
       <div className='box__two'>
         <picture>
           <source media='(max-width: 540px)' srcSet={process.env.PUBLIC_URL + '/assets/home/mobile/image-speaker-zx7.jpg'} />

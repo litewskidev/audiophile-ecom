@@ -38,22 +38,22 @@ const Navbar = () => {
         <ul className='navbar__links'>
           <li>
             <Link to='/'>
-              <p>HOME</p>
+              <p className='text__subtitle'>HOME</p>
             </Link>
           </li>
           <li>
             <Link to='/headphones'>
-              <p>HEADPHONES</p>
+              <p className='text__subtitle'>HEADPHONES</p>
             </Link>
           </li>
           <li>
             <Link to='/speakers'>
-              <p>SPEAKERS</p>
+              <p className='text__subtitle'>SPEAKERS</p>
             </Link>
           </li>
           <li>
             <Link to='/earphones'>
-              <p>EARPHONES</p>
+              <p className='text__subtitle'>EARPHONES</p>
             </Link>
           </li>
         </ul>

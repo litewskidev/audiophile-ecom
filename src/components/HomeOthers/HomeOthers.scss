@@ -1,10 +1,10 @@
 @import '../../styles/settings.scss';
 
 .homeothers__wrapper {
-  margin-top: 7.5rem;
+  margin-top: 10.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 3rem;
 }
 
 .box__one {
@@ -13,50 +13,80 @@
   text-align: center;
   color: $white;
   padding: 3.438rem 1.5rem;
+  z-index: 5;
+  height: 35rem;
 
-
-  picture {
-    z-index: 10;
+  .box__one__picture {
+    z-index: 4;
     position: relative;
+    top: 3.1rem;
+    left: -1rem;
   }
 
   .box__one__pattern {
     position: absolute;
-    width: 100%;
-    top: 6%;
-    z-index: 0;
+    width: 50%;
+    top: 12%;
+    left: 12%;
+    z-index: 2;
   }
 
   .box__one__btn {
     z-index: 10;
+    margin-top: 1rem;
+    margin-bottom: 1.3rem;
   }
 }
 
 .box__one__inner {
   align-items: center;
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
   margin-bottom: 1.5rem;
 
   img {
-    width: 50%;
+    width: 61%;
     margin-bottom: 0.5rem;
   }
 }
 
+.box__one__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: start;
+  gap: 1.5rem;
+  z-index: 3;
+  width: 29.9rem;
+  padding-right: 5.938rem;
+
+  p:first-of-type {
+    font-size: 56px;
+    line-height: 58px;
+  }
+}
+
+.hidden__box {
+  background: $gray-light;
+  height: 3rem;
+  z-index: 5;
+  margin-top: -3rem;
+}
+
 .box__two {
   position: relative;
+  z-index: 6;
+  margin-top: -3rem;
 
   img {
     border-radius: 0.5rem;
     width: 100%;
   }
 }
+
 .box__two__inner {
   position: absolute;
   top: 30%;
-  padding: 0 1.5rem;
+  padding: 0 5.938rem;
 
   p {
     margin-bottom: 2rem;
@@ -79,18 +109,105 @@
 }
 
 .box__four__inner {
-  padding: 2.563rem 1.5rem;
-
   p {
     margin-bottom: 2rem;
   }
 }
 
-@media (max-width: 1023.98px) {
+.box__three {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1.875rem;
+
+  picture {
+    width: 50%;
+  }
+}
+
+.box__four {
+  padding: 0 5.938rem;
+  padding-top: 6.313rem;
+  flex: 1;
+}
+
+@media (max-width: 1024px) {
+
+  .homeothers__wrapper {
+    margin-top: 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 
   .box__one {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 3.75rem 0;
+    height: 43.063rem;
+
+    .box__one__picture {
+      top: 2rem;
+      left: 0;
+    }
+
     .box__one__pattern {
-      top: 8rem;
+      position: absolute;
+      width: 60%;
+      top: 9.5%;
+      left: 20%;
+      z-index: 0;
+    }
+  }
+
+  .box__one__inner {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    width: 50%;
+
+    img {
+      width: 50%;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .box__one__info {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    z-index: 3;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .box__one__btn {
+    z-index: 10;
+  }
+
+  .hidden__box {
+    display: none;
+  }
+
+  .box__two {
+    margin-top: 0;
+  }
+
+  .box__two__inner {
+    position: absolute;
+    top: 30%;
+    padding: 0 3.875rem;
+
+    p {
+      margin-bottom: 2rem;
     }
   }
 
@@ -106,7 +223,8 @@
   }
 
   .box__four {
-    padding: 1rem 1.2rem;
+    padding: 0 2.563rem;
+    padding-top: 6.313rem;
     flex: 1;
   }
 }
@@ -114,8 +232,33 @@
 @media (max-width: 540px) {
 
   .box__one {
+    height: auto;
+    padding: 0;
+
     .box__one__pattern {
-      top: 44rem;
+      top: 26%;
+    }
+  }
+
+  .box__one__inner {
+    width: 90%;
+  }
+
+.box__one__info {
+  p:first-of-type {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
+  .box__two__inner {
+    position: absolute;
+    top: 30%;
+    padding: 0 1.5rem;
+    width: 80%;
+
+    p {
+      margin-bottom: 2rem;
     }
   }
 
@@ -129,6 +272,6 @@
   }
 
   .box__four {
-    padding: 0;
+    padding: 2.563rem 1.5rem;
   }
 }
