@@ -14,18 +14,22 @@ const CardList = ({ categoryImage, name, description, newp, slug }) => {
           <source media='(max-width: 1023.98px)' srcSet={process.env.PUBLIC_URL + categoryImage.tablet}/>
           <img src={process.env.PUBLIC_URL + categoryImage.desktop} alt='products' />
         </picture>
-        <div>
-          {(toggleNew(newp) === true) ? (
-            <p className='text__overline'>NEW PRODUCT</p>
-          ) : (
-            <p></p>
-          )}
-        </div>
-        <h1 className='heading__h4'>{name}</h1>
-        <p className='text__body'>{description}</p>
-      </div>
-      <div onClick={() => navigate('/' + slug)}>
-        <ButtonSee className='orange'>see product</ButtonSee>
+          <div className='cardlist__box'>
+            <div>
+              {(toggleNew(newp) === true) ? (
+                <p className='text__overline cardlist__overline'>NEW PRODUCT</p>
+              ) : (
+                <p></p>
+              )}
+            </div>
+            <h1 className='heading__h4'>{name}</h1>
+            <p className='text__body cardlist__description'>{description}</p>
+            <div className='cardlist__btn__box'>
+              <div className='cardlist__btn' onClick={() => navigate('/' + slug)}>
+                <ButtonSee className='orange'>see product</ButtonSee>
+              </div>
+            </div>
+          </div>
       </div>
     </div>
   )

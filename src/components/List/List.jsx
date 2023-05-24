@@ -1,5 +1,6 @@
 import About from '../About/About.jsx';
 import CardList from '../CardList/CardList.jsx';
+import CardListOdd from '../CardListOdd/CardListOdd.jsx';
 import Container from '../Container/Container.jsx';
 import Dropdown from '../Dropdown/Dropdown.jsx';
 import Footer from '../Footer/Footer.jsx';
@@ -14,7 +15,13 @@ const List = ({ list, title }) => {
         <Container>
           <div className='list__products'>
             <div className='list__products__wrapper'>
-              {list.map(product => <CardList key={product.id} {...product} />)}
+              {list.map(product =>
+                (product.id % 2 === 0) ? (
+                  <CardList key={product.id} {...product} />
+                ) : (
+                  <CardListOdd key={product.id} {...product} />
+                )
+              )}
             </div>
           </div>
           <Dropdown />

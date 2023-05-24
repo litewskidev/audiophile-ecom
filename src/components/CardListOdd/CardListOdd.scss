@@ -1,13 +1,13 @@
-.cardlist__wrapper {
+.cardlist__wrapper__odd {
   display: flex;
   text-align: center;
   gap: 7.813rem;
 
-  .cardlist__overline {
+  .cardlist__overline__odd {
     margin-bottom: -1rem;
   }
 
-  .cardlist__description {
+  .cardlist__description__odd {
     opacity: 0.6;
   }
 
@@ -19,15 +19,15 @@
   }
 }
 
-.cardlist__btn__box {
+.cardlist__btn__box__odd {
   margin-top: 0.5rem;
 }
 
-.cardlist__btn {
+.cardlist__btn__odd {
   display: inline;
 }
 
-.cardlist__box {
+.cardlist__box__odd {
   width: 78%;
   display: flex;
   flex-direction: column;
@@ -45,23 +45,23 @@
 
 @media (max-width: 1023.98px) {
 
-  .cardlist__wrapper {
-    flex-direction: column;
+  .cardlist__wrapper__odd {
+    flex-direction: column-reverse;
     text-align: center;
     gap: 1.25rem;
 
-    .cardlist__overline {
+    .cardlist__overline__odd {
       margin-top: 2rem;
       margin-bottom: -1rem;
       margin-left: 0.8rem;
     }
 
-    .cardlist__description {
+    .cardlist__description__odd {
       width: 80%;
     }
   }
 
-  .cardlist__box {
+  .cardlist__box__odd {
     width: 100%;
     align-items: center;
     text-align: center;
@@ -74,21 +74,21 @@
 
 @media (max-width: 540px) {
 
-  .cardlist__wrapper {
+  .cardlist__wrapper__odd {
     text-align: center;
     gap: 0.5rem;
 
-    .cardlist__overline {
+    .cardlist__overline__odd {
       margin-top: 1.5rem;
       margin-bottom: 0;
     }
 
-    .cardlist__description {
+    .cardlist__description__odd {
       width: 99%;
     }
   }
 
-  .cardlist__box {
+  .cardlist__box__odd {
     width: 100%;
     align-items: center;
     text-align: center;

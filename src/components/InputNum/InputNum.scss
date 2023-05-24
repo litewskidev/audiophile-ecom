@@ -40,10 +40,9 @@
   }
 }
 
-
-
 .inputNum__symbols {
   opacity: 0.25;
+  cursor: pointer;
 
   &:hover,
   &:focus {
