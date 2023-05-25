@@ -2,36 +2,42 @@
 
 .check__container {
   background: $gray;
-  padding-bottom: 6.063rem;
-  margin-bottom: -7.5rem;
+  padding-bottom: 8.813rem;
+  margin-bottom: -12.5rem;
   position: relative;
 }
 
+.check__goback__box {
+  padding-top: 4.938rem;
+  margin-bottom: 2.375rem;
+}
+
 .check__goback {
-  padding-top: 1.5rem;
   opacity: 0.6;
+  display: inline;
+  cursor: pointer;
 }
 
 .check__wrapper {
   display: flex;
-  flex-direction: column;
   gap: 2rem;
   margin-top: 1.5rem;
 }
 
 .check__checkout {
-  padding: 1.438rem;
+  padding: 3rem;
   background: $white;
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  flex: 1;
 }
 
 .checkout__wrapper {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 3.125rem;
 }
 
 .checkout__box {
@@ -52,10 +58,19 @@
   gap: 1.5rem;
 }
 
+.checkout__layout {
+  display: flex;
+  gap: 1rem;
+}
+
+#address__input {
+  width: 100%;
+}
+
 .checkoutform__input {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 50%;
 
   label {
     font-size: 0.75rem;
@@ -97,12 +112,28 @@
 
 //  RADIO
 .checkoutform__payment {
+  display: flex;
+  flex-direction: column;
+  gap: 1.875rem;
 
   label {
   font-size: 0.75rem;
   font-weight: 900;
   }
 }
+
+.checkoutform__payment__method {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkoutform__radio__box {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 50%;
+}
+
 .checkoutform__radio {
   display: flex;
   align-items: center;
@@ -156,13 +187,32 @@
   transform: scale(1);
 }
 
+.checkoutform__emoney {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+}
+
+.checkoutform__cash__on {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 0.5rem;
+
+  p {
+    opacity: 0.6;
+  }
+}
+
 //  SUMMARY
 .check__summary {
-  padding: 1.5rem;
+  padding: 2rem;
   background: $white;
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
+  min-width: 32%;
+  height: fit-content;
 }
 
 .summary__items {
@@ -254,12 +304,15 @@
 
 .checkout__modal__wrapper {
   margin-top: 8.438rem;
+  margin-left: auto;
+  margin-right: auto;
   background: $white;
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  width: 100%;
+  width: 50%;
+  height: fit-content;
   padding: 2rem;
 
   img {
@@ -292,6 +345,11 @@
   }
 }
 
+.checkout__modal__box {
+  display: flex;
+  min-width: 100%;
+}
+
 .checkout__modal__products{
   background: $gray;
   border-top-left-radius: 0.5rem;
@@ -299,6 +357,19 @@
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
+  width: 50%;
+}
+
+.summary__product__left__modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  img {
+    width: 4rem;
+    border-radius: 0.5rem;
+  }
 }
 
 .summary__others {
@@ -322,8 +393,10 @@
   color: $white;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 0.5rem;
-  padding: 1rem 1.5rem;
+  padding: 2.563rem 2rem;
+  width: 50%;
 
   p:first-of-type {
     font-size: 0.938rem;
@@ -342,4 +415,84 @@
 
 .checkout__modalBtn {
   width: 100%;
+}
+
+@media (max-width: 1024px) {
+
+  .check__container {
+    padding-bottom: 7.25rem;
+    margin-bottom: -7.5rem;
+  }
+
+  .check__goback__box {
+    padding-top: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .check__wrapper {
+    flex-direction: column;
+  }
+
+  .check__checkout {
+    padding: 1.875rem;
+  }
+}
+
+@media (max-width: 540px) {
+
+  .check__container {
+    padding-bottom: 6.063rem;
+    margin-bottom: -7.5rem;
+  }
+
+  .check__goback__box {
+    padding-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .check__checkout {
+    padding: 1.5rem;
+  }
+
+  .checkout__wrapper {
+    gap: 2rem;
+  }
+
+  .checkout__layout {
+    flex-direction: column;
+  }
+
+  .checkoutform__input {
+    width: 100%;
+  }
+
+  .checkoutform__payment__method {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .checkout__box {
+    gap: 1rem;
+  }
+
+  .checkoutform__radio__box {
+    width: 100%;
+  }
+
+  .checkoutform__emoney {
+    flex-direction: column;
+  }
+
+  .checkoutform__cash__on {
+    flex-direction: column;
+      p {
+        font-size: 15px;
+        line-height: 18.7px;
+      }
+  }
+
+  .check__summary {
+    padding: 2rem 1.5rem;
+  }
+
 }

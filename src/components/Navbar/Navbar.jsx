@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getAllCart } from '../../redux/cartRedux';
 import { totalItems } from '../../utils/totalItems';
@@ -30,31 +30,31 @@ const Navbar = () => {
         <div className='dropdown__toggle__btn' onClick={toggleMenu}>
           <img src={`${process.env.PUBLIC_URL}/assets/shared/tablet/icon-hamburger.svg`} alt='hamburger icon' />
         </div>
-        <Link to='/'>
+        <NavLink to='/'>
         <div className='navbar__logo'>
           <img src={`${process.env.PUBLIC_URL}/assets/shared/desktop/logo.svg`} alt='logo' />
         </div>
-        </Link>
+        </NavLink>
         <ul className='navbar__links'>
           <li>
-            <Link to='/'>
-              <p className='text__subtitle'>HOME</p>
-            </Link>
+            <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""} to='/'>
+              home
+            </NavLink>
           </li>
           <li>
-            <Link to='/headphones'>
-              <p className='text__subtitle'>HEADPHONES</p>
-            </Link>
+            <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""} to='/headphones'>
+              headphones
+            </NavLink>
           </li>
           <li>
-            <Link to='/speakers'>
-              <p className='text__subtitle'>SPEAKERS</p>
-            </Link>
+            <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""} to='/speakers'>
+              speakers
+            </NavLink>
           </li>
           <li>
-            <Link to='/earphones'>
-              <p className='text__subtitle'>EARPHONES</p>
-            </Link>
+            <NavLink className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""} to='/earphones'>
+              earphones
+            </NavLink>
           </li>
         </ul>
           <div className='navbar__cart__btn' onClick={toggleCart}>

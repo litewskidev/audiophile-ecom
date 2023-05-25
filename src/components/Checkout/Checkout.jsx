@@ -99,8 +99,8 @@ const Checkout = () => {
     <div>
       <div className='check__container'>
         <Container>
-          <div onClick={() => navigate(-1)}>
-            <p className='check__goback'>Go Back</p>
+          <div className='check__goback__box'>
+            <p onClick={() => navigate(-1)} className='check__goback'>Go Back</p>
           </div>
           {/* FORM */}
           <form className='check__wrapper' onSubmit={handleSubmit}>
@@ -110,26 +110,28 @@ const Checkout = () => {
                 <div className='checkout__box'>
                   <p className='checkout__box__desc'>BILLING DETAILS</p>
                   <div className='checkoutform__billing'>
-                    <div className='checkoutform__input'>
-                      <label htmlFor='name'>Name</label>
-                      <input
-                        onChange={e => setName(e.target.value)}
-                        id='name'
-                        type="text"
-                        placeholder='Alexei Ward'
-                        value={name}
-                        pattern='[A-Za-z\s]+'
-                        required />
-                    </div>
-                    <div className='checkoutform__input'>
-                      <label htmlFor='email'>Email Adress</label>
-                      <input
-                        onChange={e => setEmail(e.target.value)}
-                        id='email'
-                        type="email"
-                        placeholder='alexei@mail.com'
-                        value={email}
-                        required />
+                    <div className='checkout__layout'>
+                      <div className='checkoutform__input'>
+                        <label htmlFor='name'>Name</label>
+                        <input
+                          onChange={e => setName(e.target.value)}
+                          id='name'
+                          type="text"
+                          placeholder='Alexei Ward'
+                          value={name}
+                          pattern='[A-Za-z\s]+'
+                          required />
+                      </div>
+                      <div className='checkoutform__input'>
+                        <label htmlFor='email'>Email Adress</label>
+                        <input
+                          onChange={e => setEmail(e.target.value)}
+                          id='email'
+                          type="email"
+                          placeholder='alexei@mail.com'
+                          value={email}
+                          required />
+                      </div>
                     </div>
                     <div className='checkoutform__input'>
                       <label htmlFor='tel'>Phone Number</label>
@@ -147,8 +149,8 @@ const Checkout = () => {
                 <div className='checkout__box'>
                   <p className='checkout__box__desc'>SHIPPING INFO</p>
                   <div className='checkoutform__shipping'>
-                    <div className='checkoutform__input'>
-                      <label htmlFor='address'>Your Address</label>
+                    <div id='address__input' className='checkoutform__input'>
+                      <label htmlFor='address'>Address</label>
                       <input
                         onChange={e => setAddress(e.target.value)}
                         id='address'
@@ -158,27 +160,29 @@ const Checkout = () => {
                         pattern='[A-Za-z0-9/\s]+'
                         required />
                     </div>
-                    <div className='checkoutform__input'>
-                      <label htmlFor='zip'>ZIP Code</label>
-                      <input
-                        onChange={e => setZip(e.target.value)}
-                        id='zip'
-                        type="tel"
-                        placeholder='10001'
-                        value={zip}
-                        pattern='[0-9]{5}'
-                        required />
-                    </div>
-                    <div className='checkoutform__input'>
-                      <label htmlFor='city'>City</label>
-                      <input
-                        onChange={e => setCity(e.target.value)}
-                        id='city'
-                        type="text"
-                        placeholder='New York'
-                        value={city}
-                        pattern='[A-Za-z\s]+'
-                        required />
+                    <div className='checkout__layout'>
+                      <div className='checkoutform__input'>
+                        <label htmlFor='zip'>ZIP Code</label>
+                        <input
+                          onChange={e => setZip(e.target.value)}
+                          id='zip'
+                          type="tel"
+                          placeholder='10001'
+                          value={zip}
+                          pattern='[0-9]{5}'
+                          required />
+                      </div>
+                      <div className='checkoutform__input'>
+                        <label htmlFor='city'>City</label>
+                        <input
+                          onChange={e => setCity(e.target.value)}
+                          id='city'
+                          type="text"
+                          placeholder='New York'
+                          value={city}
+                          pattern='[A-Za-z\s]+'
+                          required />
+                      </div>
                     </div>
                     <div className='checkoutform__input'>
                       <label htmlFor='country'>Country</label>
@@ -196,50 +200,66 @@ const Checkout = () => {
                 <div className='checkout__box'>
                   <p className='checkout__box__desc'>PAYMENT DETAILS</p>
                   <div className='checkoutform__payment'>
-                    <label>Payment Method</label>
-                    <div className='checkoutform__radio'>
-                      <input className='radio__item'
-                        id='money' name='radio'
-                        type="radio"
-                        value="e-Money"
-                        onChange={e => setPayment(e.target.value)}
-                        defaultChecked />
-                      <label className='radio__label' htmlFor='money'>e-Money</label>
+                    <div className='checkoutform__payment__method'>
+                      <label>Payment Method</label>
+                      <div className='checkoutform__radio__box'>
+                        <div className='checkoutform__radio'>
+                          <input className='radio__item'
+                            id='money' name='radio'
+                            type="radio"
+                            value="e-Money"
+                            onChange={e => setPayment(e.target.value)}
+                            defaultChecked />
+                          <label className='radio__label' htmlFor='money'>e-Money</label>
+                        </div>
+                        <div className='checkoutform__radio'>
+                          <input className='radio__item'
+                            id='cash' name='radio'
+                            type="radio"
+                            value="Cash on Delivery"
+                            onChange={e => setPayment(e.target.value)} />
+                          <label className='radio__label' htmlFor='cash'>Cash on Delivery</label>
+                        </div>
+                      </div>
                     </div>
-                    <div className='checkoutform__radio'>
-                      <input className='radio__item'
-                        id='cash' name='radio'
-                        type="radio"
-                        value="Cash on Delivery"
-                        onChange={e => setPayment(e.target.value)} />
-                      <label className='radio__label' htmlFor='cash'>Cash on Delivery</label>
-                    </div>
-                    <div className='checkoutform__input'>
-                      <label htmlFor='e-number'>e-Money Number</label>
-                      <input
-                        onChange={e => setEnumber(e.target.value)}
-                        id='e-number'
-                        type="tel"
-                        placeholder='238521993'
-                        value={enumber}
-                        pattern='[0-9]{9}'
-                        required />
-                    </div>
-                    <div className='checkoutform__input'>
-                      <label htmlFor='e-pin'>e-Money PIN</label>
-                      <input
-                        onChange={e => setEpin(e.target.value)}
-                        id='e-pin'
-                        type="tel"
-                        placeholder='1001'
-                        value={epin}
-                        pattern='[0-9]{4}'
-                        required />
+                    <div>
+                      {(payment === 'Cash on Delivery') ? (
+                        <div className='checkoutform__cash__on'>
+                          <img src={process.env.PUBLIC_URL + './assets/checkout/icon-cash-on-delivery.svg'} alt='cash on delivery icon'/>
+                          <p className='text__body'>The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives at your residence. Just make sure your address is correct so that your order will not be cancelled.</p>
+                        </div>
+                      ) : (
+                        <div className='checkoutform__emoney'>
+                          <div className='checkoutform__input'>
+                            <label htmlFor='e-number'>e-Money Number</label>
+                            <input
+                              onChange={e => setEnumber(e.target.value)}
+                              id='e-number'
+                              type="tel"
+                              placeholder='238521993'
+                              value={enumber}
+                              pattern='[0-9]{9}'
+                              required />
+                          </div>
+                          <div className='checkoutform__input'>
+                            <label htmlFor='e-pin'>e-Money PIN</label>
+                            <input
+                              onChange={e => setEpin(e.target.value)}
+                              id='e-pin'
+                              type="tel"
+                              placeholder='1001'
+                              value={epin}
+                              pattern='[0-9]{4}'
+                              required />
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+
             <div className='check__summary'>
               <p className='heading__h6'>summary</p>
               <div className='summary__items'>
@@ -279,6 +299,7 @@ const Checkout = () => {
                 <ButtonSee className='orange'>continue & pay</ButtonSee>
             </div>
           </form>
+
           {/* CHECKOUT MODAL */}
           <div id='confirm-modal' className='checkout__modal'>
             <Container>
@@ -288,12 +309,12 @@ const Checkout = () => {
                   <p>thank you<br />for your order<br />ID: <span>{order.OrderID}</span></p>
                   <p>You will receive an email confirmation shortly.</p>
                 </div>
-                <div>
+                <div className='checkout__modal__box'>
                   <div className='checkout__modal__products'>
                     <div>
                       {summary.slice(0,1).map(product =>
                         <div key={product.cartId} className='summary__product'>
-                        <div className='summary__product__left'>
+                        <div className='summary__product__left__modal'>
                           <img src={process.env.PUBLIC_URL + product.thumbnail} alt='product thumbnail'></img>
                           <div className='summary__product__info'>
                             <p className='summary__symbol'>{product.symbol}</p>

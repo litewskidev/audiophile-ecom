@@ -33,6 +33,27 @@
   margin: 0;
   margin-right: 7.5rem;
 
+  a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    &:hover {
+      color: $gray-dark;
+    }
+  }
+
+  .active {
+    color: $orange-dark;
+
+    &:hover {
+      color: $orange-dark;
+    }
+  }
+
   p {
     text-decoration: none;
     color: $white;
@@ -51,12 +72,13 @@
   position: absolute;
   transition: top 0.3s ease-out;
   top: -60rem;
+  right: 8.313rem;
   z-index: 10;
-  width: 75%;
+  width: 31%;
 }
 
 .cart__container {
-  padding: 1.5rem;
+  padding: 2rem;
 }
 
 .navbar__cart__btn{
@@ -79,6 +101,7 @@
 .navbar__cart.open {
   position: absolute;
   top: 5.7rem;
+  right: 8.313rem;
   z-index: 10;
 }
 
@@ -98,8 +121,18 @@
     padding: 2rem 2.5rem;
   }
 
+  .cart__container {
+    padding: 1.5rem;
+  }
+
   .navbar__cart {
-    width: 100%;
+    width: 54%;
+    right: 1rem;
+  }
+
+  .navbar__cart.open {
+    top: 5.7rem;
+    right: 1rem;
   }
 
   .navbar__dropdown {
@@ -178,6 +211,16 @@
 
   .navbar__wrapper {
     padding: 2rem 1.5rem;
+  }
+
+  .navbar__cart {
+    width: 100%;
+    right: 0;
+  }
+
+  .navbar__cart.open {
+    top: 5.7rem;
+    right: 0;
   }
 
   .navbar__dropdown {
