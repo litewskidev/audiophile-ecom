@@ -16,7 +16,7 @@ const List = ({ list, title }) => {
           <div className='list__products'>
             <div className='list__products__wrapper'>
               {list.map(product =>
-                (product.id % 2 === 0) ? (
+                (list.indexOf(product) % 2 === 0) ? (
                   <CardList key={product.id} {...product} />
                 ) : (
                   <CardListOdd key={product.id} {...product} />
