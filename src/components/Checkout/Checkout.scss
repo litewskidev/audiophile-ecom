@@ -436,6 +436,10 @@
   .check__checkout {
     padding: 1.875rem;
   }
+
+  .checkout__modal__wrapper {
+    width: 85%;
+  }
 }
 
 @media (max-width: 540px) {
@@ -493,6 +497,26 @@
 
   .check__summary {
     padding: 2rem 1.5rem;
+  }
+
+  .checkout__modal__wrapper {
+    width: 100%;
+  }
+
+  .checkout__modal__box {
+    flex-direction: column;
+  }
+
+  .checkout__modal__grand {
+    width: 100%;
+  }
+
+  .checkout__modal__products {
+    width: 100%;
+  }
+
+  .summary__product__left__modal {
+    flex-direction: row;
   }
 
 }

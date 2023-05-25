@@ -27,6 +27,9 @@ const Checkout = () => {
   const [payment, setPayment] = useState('');
   const [enumber, setEnumber] = useState('');
   const [epin, setEpin] = useState('');
+  const [orderId, setOrderId] = useState('');
+
+  const [shopList, setShopList] = useState(0);
 
   const toggleModal = () => {
     const modal = document.querySelector('#confirm-modal');
@@ -52,7 +55,7 @@ const Checkout = () => {
   const vat = (totalPrice(summary) * 0.2).toFixed();
   const gTotal = totalPrice(summary) + shipping;
   const order = {
-    OrderID: shortid(),
+    OrderID: orderId,
     Name: name,
     Email: email,
     Phone: phone,
@@ -68,6 +71,7 @@ const Checkout = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setOrderId(shortid());
     console.log(order);
     dispatch(fetchSendOrder(order));
     toggleModal();
@@ -259,7 +263,6 @@ const Checkout = () => {
                 </div>
               </div>
             </div>
-
             <div className='check__summary'>
               <p className='heading__h6'>summary</p>
               <div className='summary__items'>
@@ -299,7 +302,6 @@ const Checkout = () => {
                 <ButtonSee className='orange'>continue & pay</ButtonSee>
             </div>
           </form>
-
           {/* CHECKOUT MODAL */}
           <div id='confirm-modal' className='checkout__modal'>
             <Container>
@@ -310,29 +312,55 @@ const Checkout = () => {
                   <p>You will receive an email confirmation shortly.</p>
                 </div>
                 <div className='checkout__modal__box'>
-                  <div className='checkout__modal__products'>
-                    <div>
-                      {summary.slice(0,1).map(product =>
-                        <div key={product.cartId} className='summary__product'>
-                        <div className='summary__product__left__modal'>
-                          <img src={process.env.PUBLIC_URL + product.thumbnail} alt='product thumbnail'></img>
-                          <div className='summary__product__info'>
-                            <p className='summary__symbol'>{product.symbol}</p>
-                            <p className='summary__price'>$ {product.price}</p>
+                  {(shopList === 0) ? (
+                    <div className='checkout__modal__products'>
+                      <div>
+                        {summary.slice(0,1).map(product =>
+                          <div key={product.cartId} className='summary__product'>
+                          <div className='summary__product__left__modal'>
+                            <img src={process.env.PUBLIC_URL + product.thumbnail} alt='product thumbnail'></img>
+                            <div className='summary__product__info'>
+                              <p className='summary__symbol'>{product.symbol}</p>
+                              <p className='summary__price'>$ {product.price}</p>
+                            </div>
                           </div>
+                          <p className='summary__price'>x{product.quantity}</p>
                         </div>
-                        <p className='summary__price'>x{product.quantity}</p>
+                        )}
                       </div>
-                      )}
+                      <div>
+                        {(summary.length > 1) ? (
+                          <div className='summary__others'>
+                            <p onClick={() => setShopList(1)}>and {totalItems(summary) - summary[0].quantity} other item(s)</p>
+                          </div>
+                        ) : (<p></p>)}
+                      </div>
                     </div>
-                    <div>
-                      {(summary.length > 1) ? (
-                        <div className='summary__others'>
-                          <p>and {totalItems(summary) - summary[0].quantity} other item(s)</p>
+                  ) : (
+                    <div className='checkout__modal__products'>
+                      <div>
+                        {summary.map(product =>
+                          <div key={product.cartId} className='summary__product'>
+                          <div className='summary__product__left__modal'>
+                            <img src={process.env.PUBLIC_URL + product.thumbnail} alt='product thumbnail'></img>
+                            <div className='summary__product__info'>
+                              <p className='summary__symbol'>{product.symbol}</p>
+                              <p className='summary__price'>$ {product.price}</p>
+                            </div>
+                          </div>
+                          <p className='summary__price'>x{product.quantity}</p>
                         </div>
-                      ) : (<p></p>)}
+                        )}
+                      </div>
+                      <div>
+                        {(summary.length > 1) ? (
+                          <div className='summary__others'>
+                            <p onClick={() => setShopList(0)}>View less</p>
+                          </div>
+                        ) : (<p></p>)}
+                      </div>
                     </div>
-                  </div>
+                  )}
                   <div className='checkout__modal__grand'>
                     <p>grand total</p>
                     <p>$ {gTotal}</p>
