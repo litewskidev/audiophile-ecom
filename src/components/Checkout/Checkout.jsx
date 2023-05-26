@@ -27,7 +27,7 @@ const Checkout = () => {
   const [payment, setPayment] = useState('');
   const [enumber, setEnumber] = useState('');
   const [epin, setEpin] = useState('');
-  const [orderId, setOrderId] = useState('');
+  const [orderId] = useState(shortid());
 
   const [shopList, setShopList] = useState(0);
 
@@ -55,7 +55,7 @@ const Checkout = () => {
   const vat = (totalPrice(summary) * 0.2).toFixed();
   const gTotal = totalPrice(summary) + shipping;
   const order = {
-    OrderID: orderId,
+    ID: orderId,
     Name: name,
     Email: email,
     Phone: phone,
@@ -71,11 +71,10 @@ const Checkout = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setOrderId(shortid());
-    console.log(order);
     dispatch(fetchSendOrder(order));
     toggleModal();
     goToTop();
+    console.log(order);
   };
 
   const handleBackToHome = (e) => {
@@ -124,7 +123,7 @@ const Checkout = () => {
                           placeholder='Alexei Ward'
                           value={name}
                           pattern='[A-Za-z\s]+'
-                          required />
+                           />
                       </div>
                       <div className='checkoutform__input'>
                         <label htmlFor='email'>Email Adress</label>
@@ -134,7 +133,7 @@ const Checkout = () => {
                           type="email"
                           placeholder='alexei@mail.com'
                           value={email}
-                          required />
+                           />
                       </div>
                     </div>
                     <div className='checkoutform__input'>
@@ -146,7 +145,7 @@ const Checkout = () => {
                         placeholder='202555013'
                         value={phone}
                         pattern='[0-9]{9}'
-                        required />
+                         />
                     </div>
                   </div>
                 </div>
@@ -162,7 +161,7 @@ const Checkout = () => {
                         placeholder='1137 Williams Avenue'
                         value={address}
                         pattern='[A-Za-z0-9/\s]+'
-                        required />
+                         />
                     </div>
                     <div className='checkout__layout'>
                       <div className='checkoutform__input'>
@@ -174,7 +173,7 @@ const Checkout = () => {
                           placeholder='10001'
                           value={zip}
                           pattern='[0-9]{5}'
-                          required />
+                           />
                       </div>
                       <div className='checkoutform__input'>
                         <label htmlFor='city'>City</label>
@@ -185,7 +184,7 @@ const Checkout = () => {
                           placeholder='New York'
                           value={city}
                           pattern='[A-Za-z\s]+'
-                          required />
+                           />
                       </div>
                     </div>
                     <div className='checkoutform__input'>
@@ -197,7 +196,7 @@ const Checkout = () => {
                         placeholder='United States'
                         value={country}
                         pattern='[A-Za-z\s]+'
-                        required />
+                         />
                     </div>
                   </div>
                 </div>
@@ -243,7 +242,7 @@ const Checkout = () => {
                               placeholder='238521993'
                               value={enumber}
                               pattern='[0-9]{9}'
-                              required />
+                               />
                           </div>
                           <div className='checkoutform__input'>
                             <label htmlFor='e-pin'>e-Money PIN</label>
@@ -254,7 +253,7 @@ const Checkout = () => {
                               placeholder='1001'
                               value={epin}
                               pattern='[0-9]{4}'
-                              required />
+                               />
                           </div>
                         </div>
                       )}
@@ -308,7 +307,7 @@ const Checkout = () => {
               <div className='checkout__modal__wrapper'>
                 <img src={process.env.PUBLIC_URL + 'assets/checkout/icon-order-confirmation.svg'} alt='confirmation sign'></img>
                 <div className='checkout__modal__text'>
-                  <p>thank you<br />for your order<br />ID: <span>{order.OrderID}</span></p>
+                  <p>thank you<br />for your order<br />ID: <span>{order.ID}</span></p>
                   <p>You will receive an email confirmation shortly.</p>
                 </div>
                 <div className='checkout__modal__box'>

@@ -353,11 +353,12 @@
 .checkout__modal__products{
   background: $gray;
   border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
   width: 50%;
+  justify-content: center;
 }
 
 .summary__product__left__modal {
@@ -373,6 +374,7 @@
 }
 
 .summary__others {
+  cursor: pointer;
   margin-top: 0.75rem;
   text-align: center;
   border-top: 0.063rem solid rgb(0, 0, 0, 0.2);
@@ -388,7 +390,7 @@
 
 .checkout__modal__grand {
   background: $black;
-  border-bottom-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   color: $white;
   display: flex;
@@ -509,14 +511,21 @@
 
   .checkout__modal__grand {
     width: 100%;
+    border-bottom-left-radius: 0.5rem;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0.5rem;
+    border-top-right-radius: 0;
   }
 
   .checkout__modal__products {
     width: 100%;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0;
   }
 
   .summary__product__left__modal {
     flex-direction: row;
   }
-
 }

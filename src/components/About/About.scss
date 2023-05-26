@@ -1,7 +1,7 @@
 @import '../../styles/settings.scss';
 
 .about__wrapper {
-  margin-top: 12.5rem;
+  margin-top: 12.2rem;
   display: flex;
   text-align: start;
   justify-content: center;
@@ -30,10 +30,11 @@
 }
 
 .about__info {
+  //margin-top: -10px;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  width: 50%;
+  width: 47%;
   padding-right: 4.5rem;
 }
 

@@ -20,7 +20,7 @@ const HomeHero = ({ newp, name, slug }) => {
         <div className='info__hero'>
           <div className='info__hero__inner'>
             {(toggleNew(newp) === true ) ? (
-              <p className='text__overline'>new product</p>
+              <p className='text__overline info__hero__overline'>new product</p>
               ) : (
               <p></p>
             )}

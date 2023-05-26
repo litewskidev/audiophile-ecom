@@ -93,6 +93,10 @@
   }
 }
 
+.box__two__btn {
+  display: inline;
+}
+
 .box__three {
   display: flex;
   flex-direction: column;
@@ -129,6 +133,10 @@
   padding: 0 5.938rem;
   padding-top: 6.313rem;
   flex: 1;
+}
+
+.box__four__btn {
+  display: inline;
 }
 
 @media (max-width: 1024px) {

@@ -35,7 +35,7 @@ const HomeOthers = () => {
         </picture>
         <div className='box__two__inner'>
           <p className='heading__h4'>zx7 speaker</p>
-          <div onClick={() => navigate('/zx7-speaker')}>
+          <div className='box__two__btn' onClick={() => navigate('/zx7-speaker')}>
             <ButtonSee className='transparent'>see product</ButtonSee>
           </div>
         </div>
@@ -49,7 +49,7 @@ const HomeOthers = () => {
         <div className='box__four'>
           <div className='box__four__inner'>
             <p className='heading__h4'>yx1 earphones</p>
-            <div onClick={() => navigate('/yx1-earphones')}>
+            <div className='box__four__btn' onClick={() => navigate('/yx1-earphones')}>
               <ButtonSee className='transparent'>see product</ButtonSee>
             </div>
           </div>

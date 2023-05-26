@@ -32,7 +32,7 @@ const Cart = () => {
     <div className='cart__wrapper'>
       <div className='cart__header'>
         <p className='heading__h6'>cart({totalItems(cart)})</p>
-        <p className='text__body' onClick={clearCart}>Remove all</p>
+        <p className='text__body cart__remove' onClick={clearCart}>Remove all</p>
       </div>
       <div className='cart__products'>
         {(cart.length === 0) ? (

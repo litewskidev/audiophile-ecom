@@ -4,7 +4,6 @@
   max-width: 1400px;
   background: white;
   opacity: 1 !important;
-  //min-height: 30.5rem;
   border-radius: 0.5rem;
   padding: 2rem 1.75rem;
   display: flex;
@@ -12,14 +11,18 @@
   box-shadow: 0 0 20rem $black;
 }
 
-.cart__header {
-  display: flex;
-  justify-content: space-between;
+  .cart__header {
+    display: flex;
+    justify-content: space-between;
 
   p:last-of-type {
     text-decoration: underline;
     opacity: 0.55;
   }
+}
+
+.cart__remove {
+  cursor: pointer;
 }
 
 .cart__products {
