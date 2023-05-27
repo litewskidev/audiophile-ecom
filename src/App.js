@@ -19,6 +19,7 @@ const App = () => {
   /*  API CART
   useEffect(() => dispatch(fetchCart()), [dispatch]);
   */
+
   return (
     <main>
       <Navbar />
