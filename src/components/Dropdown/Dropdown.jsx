@@ -9,7 +9,7 @@ const Dropdown = () => {
     <div id='dropdown' >
       <ul className='dropdown__list'>
         <li>
-          <div className='dropdown__box'>
+          <div className='dropdown__box box__left'>
             <img className='dropdown__img' src={`${process.env.PUBLIC_URL}/assets/shared/desktop/image-category-thumbnail-headphones.png`} alt='headphones'></img>
             <p className='dropdown__text'>headphones</p>
             <div className='dropdown__link' onClick={() => navigate('/headphones')}><ButtonShop>shop</ButtonShop></div>
@@ -26,7 +26,7 @@ const Dropdown = () => {
 
         <li>
           <div className='dropdown__box'>
-            <img className='dropdown__img' src={`${process.env.PUBLIC_URL}/assets/shared/desktop/image-category-thumbnail-earphones.png`} alt='earphones'></img>
+            <img className='dropdown__img box__right' src={`${process.env.PUBLIC_URL}/assets/shared/desktop/image-category-thumbnail-earphones.png`} alt='earphones'></img>
             <p className='dropdown__text'>earphones</p>
             <div className='dropdown__link' onClick={() => navigate('/earphones')}><ButtonShop>shop</ButtonShop></div>
           </div>
