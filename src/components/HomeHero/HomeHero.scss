@@ -19,7 +19,6 @@
   position: relative;
   overflow: hidden;
 
-
   img {
     max-height: 109.5%;
     object-fit: cover;
@@ -32,12 +31,11 @@
 
 .info__hero {
   padding-left: 10.313rem;
-  margin-top: 15.6%;
+  margin-top: 10%;
   max-width: 100%;
   gap: 1.5rem;
   position: absolute;
   color: white;
-  top: 0;
 
   p {
     color: white;
@@ -74,7 +72,7 @@
   }
 
   .info__hero {
-    margin-top: 13.5rem;
+    margin-top: 13rem;
     text-align: center;
     padding-left: 0;
 
@@ -109,7 +107,7 @@
   }
 
   .info__hero {
-    margin-top: 12.375rem;;
+    margin-top: 5rem;;
 
     p {
       width: 80%;

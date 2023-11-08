@@ -295,11 +295,12 @@
 .checkout__modal.on {
   display: block;
   position: absolute;
-  top: 0;
+  top: -5rem;
   left: 0;
   background: rgba(0, 0, 0, 0.3);
   height: 130%;
   width: 100%;
+  z-index: 999;
 }
 
 .checkout__modal__wrapper {

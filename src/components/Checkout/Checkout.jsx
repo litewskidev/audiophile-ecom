@@ -6,6 +6,7 @@ import { fetchSendOrder } from '../../redux/ordersRedux.js';
 import { totalItems } from '../../utils/totalItems.js';
 import { totalPrice } from '../../utils/totalPrice.js';
 import { goToTop } from '../../utils/goToTop.js';
+import { motion } from "framer-motion";
 import shortid from 'shortid';
 import Container from '../Container/Container.jsx';
 import ButtonSee from '../ButtonSee/ButtonSee.jsx';
@@ -99,6 +100,12 @@ const Checkout = () => {
   }, [navigate, summary.length]);
 
   return (
+    <motion.div
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0,
+      transition: { delay: 0.2, duration: 1, ease: [0, 0.9, 0.9, 1] }
+    }}
+    >
     <div>
       <div className='check__container'>
         <Container>
@@ -375,6 +382,7 @@ const Checkout = () => {
       </div>
       <Footer />
     </div>
+    </motion.div>
   )
 };
 
