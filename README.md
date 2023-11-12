@@ -1,35 +1,16 @@
-# Audiophile e-commerce website
-Multi-page E-commerce App with Cart and Checkout.
+# Audiophile e-commerce
+Multi-page e-commerce website for audiophiles. Category and product pages. Cart with quantity input. Checkout page, ordered products dropdown and confirming order modal with order ID.
 
-# Features:
-- category pages and product page,
-- products data fetch from API, orders send to API,
-- cart with quantity input,
-- add product to cart, remove when its quantity is reduced to 0 or clear whole cart,
-- when adding product which is already in cart, its quantity is updated,
-- checkout page, confirming-order-modal with order ID and ordered products dropdown,
-- when cart is empty checkout page is not available
-
-# Design & assets :
-- Frontend Mentor
+# Live View:
+- https://audiophile.litewskidev.usermd.net
 
 # Build with:
-- HTML5
-- JavaScript
-- React
-- React Router
-- Redux
-- Sass
-- CSS Flexbox
-- Express
+HTML5 ∙ JavaScript ∙ React ∙ React Router ∙ Redux ∙ Node ∙ Express ∙ SASS ∙ RWD
 
 # Layouts:
-- Mobile
-- Tablet
-- Desktop
+Mobile ∙ Tablet ∙ Desktop
 
-# Links:
-- Live Site URL: http://audiophile.litewskidev.usermd.net
-
-# Author
-- Frontend Mentor - [Adrian](https://www.frontendmentor.io/profile/litewskidev)
+# Preview:
+![audiophile1](audiophile1.png)
+![audiophile2](audiophile2.png)
+![audiophile3](audiophile3.png)
